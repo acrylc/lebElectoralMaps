@@ -37,6 +37,10 @@ html, body{
 	left:0px;
 }
 
+h1{
+	margin: 0 0 40px 0 ;
+}
+
 .text_overlay{
 
 	margin:150px 0 150px 200px;
@@ -91,14 +95,24 @@ p{
 }
 
 #time{
-	font-size: 1.5em;
+	font-size: 1.2em;
 	margin: 0 40px 0 0 ;
 	font-weight: 700;
 }
 
 #time_desc{
 	max-width:490px;
-	font-size: 1.2em;
+	font-size: 1.1em;
+}
+
+ul#social{
+	margin:40px 0 0 0;
+	padding:0px;
+
+	li{
+		margin: 0 2px 0 2px;
+
+	}
 }
 
 

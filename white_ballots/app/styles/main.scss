@@ -1,3 +1,5 @@
+@import 'base';
+
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
@@ -72,19 +74,31 @@ fh{
 	padding: 0 5px 0 5px;
 }
 
+p{
+	display:block;
+}
 
+#time_section{
+	display:block;
+	position:relative;
+}
 #time, #time_desc{
-	font-size: 1.2em;
 	display:inline-block;
+	float:left;
+	padding: 10px 0 10px 0;
+	line-height: 1.3em;
+
 }
 
 #time{
+	font-size: 1.5em;
 	margin: 0 40px 0 0 ;
 	font-weight: 700;
 }
 
 #time_desc{
-	width:490px;
+	max-width:490px;
+	font-size: 1.2em;
 }
 
 

@@ -8,17 +8,17 @@ whiteBallots.contentEn = {
 	desc : 'The White Ballot symbolizes a strong refusal of the political system and its ruling regime and the electoral law. It doesn’t have a religious confession and is the only constant voice across Lebanon. ',
 	content: [
 		{
-			time : '2005',
+			ttime : '2005',
 			time_desc : 'The white ballot does not have an electoral voice.'
 			// need to add map layer
 		},
 		{
-			time : '2005',
+			ttime : '2005',
 			time_desc : 'The Lebanese government recognizes the white ballot as an electoral voice.'
 			// need to add map layer
 		},
 		{
-			time : '2013',
+			ttime : '2013',
 			time_desc : ' What role will the white ballot play in the upcoming elections? '
 			// need to add map layer
 		}
@@ -31,17 +31,17 @@ whiteBallots.contentAr = {
 	desc : 'الاقتراع الأبيض يرمز إلى رفض قوي من النظام السياسي ونظام الحكم والقانون الانتخابي. أنه ليس لديه اعتراف الدينية وصوت الثابت الوحيد في لبنان.',
 	content: [
 		{
-			time : '2005',
+			ttime : '2005',
 			time_desc : 'The white ballot does not have an electoral voice.'
 			// need to add map layer
 		},
 		{
-			time : '2005',
+			ttime : '2005',
 			time_desc : 'The Lebanese government recognizes the white ballot as an electoral voice.'
 			// need to add map layer
 		},
 		{
-			time : '2013',
+			ttime : '2013',
 			time_desc : ' What role will the white ballot play in the upcoming elections? '
 			// need to add map layer
 		}
@@ -91,8 +91,8 @@ whiteBallots.renderText = function( lang ){
 	$(".text_overlay.ar").html(_.template( template,  this.contentAr));
 
     for (var i=0;i<this.contentEn.content.length;i++){
-	    $(".text_overlay.en").append(_.template( template2,  this.contentEn.content[i]))
-	    $(".text_overlay.ar").append(_.template( template2,  this.contentAr.content[i]))
+	    $(".text_overlay.en").append(_.template( template2, { text : this.contentEn.content[i], layer : this.map.layers[i]} ));
+	    $(".text_overlay.ar").append(_.template( template2, { text : this.contentAr.content[i], layer : this.map.layers[i]} ));
     }
 
 }
@@ -110,12 +110,11 @@ whiteBallots.renderContents = function( lang ){
 
 }
 
-whiteBallots.init= function(){
+whiteBallots.init = function(){
 	whiteBallots.renderContents();
 	var that = this;
 
 	$('.langbtn').on('click', function(e){
-		console.log( $(e.toElement).attr('id'));
 		that.transText($(e.toElement).attr('id'));
 	});
 }
@@ -132,13 +131,11 @@ whiteBallots.transText = function(lang){
 
 		$('.text_overlay.ar').fadeOut('150');
 		$('.text_overlay.en').fadeIn('200');
-
 	}
 }
 
+
 $('document').ready(function(){
-
 	whiteBallots.init();
-
 });
 

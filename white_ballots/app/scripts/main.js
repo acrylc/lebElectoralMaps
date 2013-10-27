@@ -104,3 +104,13 @@ whiteBallots.renderContents = function( lang ){
 
 }
 
+whiteBallots.init= function(){
+	whiteBallots.renderContents();
+	var that = this;
+
+	$('.langbtn').on('click', function(e){
+		console.log( $(e.toElement).attr('id'));
+		that.renderText($(e.toElement).attr('id'));
+	});
+}
+

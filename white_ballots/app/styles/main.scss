@@ -144,7 +144,33 @@ ul#social{
 
 }
 
+#lang{
+	z-index: 100;
+	position:absolute;
+	top:0px;
+	right: 50px;
+}
 
 
+$col : rgb(40,40,60);
+.langbtn{
+	padding: 10px;
+	text-align: center;
+	display:inline-block;
+	width:40px;
+	margin:0px;
+	float:left;
 
+	background-color: rgb(40,40,60);
+	color:white;
+	@include transition(background-color 100ms ease-in);
+	cursor: pointer;
+
+	&:hover{
+		@include transition(background-color 100ms ease-in);
+
+		background-color: white;
+		color: $col;
+	}
+}
 

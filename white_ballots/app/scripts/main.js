@@ -48,6 +48,15 @@ whiteBallots.contentAr = {
 	]
 }
 
+whiteBallots.map = {
+	baseMap : 'mayakreidieh.map-dfh9esrb', 
+	layers : [
+		'mayakreidieh.t1',
+		'mayakreidieh.t1',
+		'mayakreidieh.t1'
+	]
+}
+
 /* @desc 
  */
 whiteBallots.renderMap = function(){
@@ -74,23 +83,17 @@ whiteBallots.renderText = function( lang ){
 	$('.text_overlay').html('');
 	$('.text_overlay.ar').css({'display':'none'});
     var template = $("#text_overlay_template").html();
+    var template2 = $("#time_section_template").html();
 
 	if (lang == undefined)
 		lang = 'en';
-	    $(".text_overlay.en").html(_.template( template,  this.contentEn));
-	    $(".text_overlay.ar").html(_.template( template,  this.contentAr));
+	$(".text_overlay.en").html(_.template( template,  this.contentEn));
+	$(".text_overlay.ar").html(_.template( template,  this.contentAr));
 
-
-	// if (lang=='en'){
-	//     $(".text_overlay").html(_.template( template,  this.contentEn));
-	//     $('.text_overlay').removeClass('ar');
-	//     $('.text_overlay').addClass('en');
-	// } else {
-	//     $(".text_overlay").html(_.template( template,  this.contentAr));
-	//     $('.text_overlay').removeClass('en');
-	//     $('.text_overlay').addClass('ar');
-	// }
-
+    for (var i=0;i<this.contentEn.content.length;i++){
+	    $(".text_overlay.en").append(_.template( template2,  this.contentEn.content[i]))
+	    $(".text_overlay.ar").append(_.template( template2,  this.contentAr.content[i]))
+    }
 
 }
 
@@ -132,4 +135,10 @@ whiteBallots.transText = function(lang){
 
 	}
 }
+
+$('document').ready(function(){
+
+	whiteBallots.init();
+
+});
 

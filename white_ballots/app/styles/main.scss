@@ -43,7 +43,7 @@ h1{
 
 .text_overlay{
 
-	margin:150px 0 150px 200px;
+	margin:150px 0 150px 10%;
 	padding: 20px;
 	color : rgb(50,50,70);
 	background-color: rgba(255,255,255,0.7);
@@ -116,8 +116,33 @@ ul#social{
 }
 
 
+.text_overlay.en{
+	text-align: left;
+	
+	#time_section{
+		#time, #time_desc{
+			float: left;
+		}
+	}
+	#time{
+		margin: 0 40px 0 0;
+	}
 
+}
 
+.text_overlay.ar{
+	text-align: right;
+	
+	#time_section{
+		#time, #time_desc{
+			float: right;
+		}
+	}
+	#time{
+		margin: 0 0 0 40px;
+	}
+
+}
 
 
 

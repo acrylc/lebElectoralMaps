@@ -25,12 +25,32 @@
     <body>
         
         <div id='map_container'>
-            <div class='text_overlay'>
-                <h1> The <fc>Power</fc> of the <fh>White Ballot</fh> </h1>
-                <p id='desc'>The White Ballot symbolizes a strong refusal of the political system and its ruling regime and the electoral law. It doesn’t have a religious confession and is the only constant voice across Lebanon. 
+            <div class='text_overlay ar'>
+            </div>
+            <div id='map'></div>
+        </div>
+        
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <script type='text/template' id='text_overlay_template'>
+                <h1> <%= title %> </h1>
+                <p id='desc'>
+                    <%= desc %>
                 </p>
                 
-                <div id='times_ection' class='clearfix'>
+                <div id='time_section' class='clearfix'>
                     <div id='time'>2005</div>
                     <div id='time_desc'> The white ballot does not have an electoral voice. </div> 
                 </div>
@@ -51,24 +71,8 @@
                     <li class="fa fa-google-plus-square fa-2x"></li>
                 </ul>
 
-            </div>
-            <div id='map'></div>
-        </div>
-        
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
-
 
 
         <!-- build:js scripts/vendor.js -->
@@ -77,6 +81,7 @@
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:js scripts/main.js -->
+        <script src='http://underscorejs.org/underscore-min.js'></script>
         <script src='http://www.blurjs.com/blur.js'></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->

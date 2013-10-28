@@ -48,12 +48,12 @@ whiteBallots.contentAr = {
 	]
 }
 
-whiteBallots.map = {
+whiteBallots.contentMap = {
 	baseMap : 'mayakreidieh.map-dfh9esrb', 
 	layers : [
-		'mayakreidieh.t1',
-		'mayakreidieh.t1',
-		'mayakreidieh.t1'
+		'mayakreidieh.t2',
+		'mayakreidieh.t2',
+		'mayakreidieh.t2'
 	]
 }
 
@@ -61,15 +61,20 @@ whiteBallots.map = {
  */
 whiteBallots.renderMap = function(){
 	// init Map object, bind it to #map div
-	var map = L.map('map').setView([33.9, 35], 9);
+	this.map = L.map('map').setView([33.9, 35], 9);
 
 	// load each layer and add it to the map
 	// note that the layer order matters, they overlay each other
-	var layerUrls = ['mayakreidieh.map-dfh9esrb', 'mayakreidieh.t1'];
+	var layerUrls = ['mayakreidieh.map-dfh9esrb', 'mayakreidieh.t4'];
+
+
 	for (var i=0;i<layerUrls.length;i++){
 		var layer = L.mapbox.tileLayer(layerUrls[i]);
-		map.addLayer(layer);
+		this.map.addLayer(layer);
 	}
+	var tooltipTemplate = " <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blanc_20_1}}</div>"
+	var gridLayer = L.mapbox.gridLayer('mayakreidieh.t4').addTo(this.map);
+	var gridControl = L.mapbox.gridControl(gridLayer, {template: tooltipTemplate, follow: false,}).addTo(this.map);
 
 }
 
@@ -91,9 +96,17 @@ whiteBallots.renderText = function( lang ){
 	$(".text_overlay.ar").html(_.template( template,  this.contentAr));
 
     for (var i=0;i<this.contentEn.content.length;i++){
-	    $(".text_overlay.en").append(_.template( template2, { text : this.contentEn.content[i], layer : this.map.layers[i]} ));
-	    $(".text_overlay.ar").append(_.template( template2, { text : this.contentAr.content[i], layer : this.map.layers[i]} ));
+	    $(".text_overlay.en").append(_.template( template2, { text : this.contentEn.content[i], layer : this.contentMap.layers[i]} ));
+	    $(".text_overlay.ar").append(_.template( template2, { text : this.contentAr.content[i], layer : this.contentMap.layers[i]} ));
     }
+
+    // On clicking a new year, display the map layer or data for that year
+    $(".time_section").on('click', function(e){
+    	var layerUrl = $(e.currentTarget).data(); 
+    	console.log(layer);
+		var layer = L.mapbox.tileLayer(layerUrl);
+		this.map.addLayer(layer);
+    });
 
 }
 

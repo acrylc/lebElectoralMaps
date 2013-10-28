@@ -24,14 +24,15 @@
     </head>
     <body>
         
-        <div id='lang'>
-            <div class='langbtn'>Download data</div>
-            <div class='langbtn'>About this data</div>
-            <div class='langbtn'><div class="fa fa-twitter fa-1x"></div></div>
-            <div class='langbtn'><div class="fa fa-facebook fa-1x"></div></div>
-            <div class='langbtn'><div class="fa fa-google-plus fa-1x"></div></div>
-            <div id='ar' class='langbtn'>ع</div>
-        </div>
+        <ul id='toolbar'>
+            <li class='langbtn'>DOWNLOAD DATA</li>
+            <li class='langbtn'>ABOUT THIS DATA</li>
+            <li class='langbtn'><div class="fa fa-twitter fa-1x"></div></li>
+            <li class='langbtn'><div class="fa fa-facebook fa-1x"></div></li>
+            <li class='langbtn'><div class="fa fa-google-plus fa-1x"></div></li>
+            <li id='ar' class='langbtn'>ع</li>
+        </ul>
+
         <div id='map_container'>
             <div class='text_overlay ar'></div>
             <div class='text_overlay en'></div>
@@ -60,7 +61,7 @@
         </script>
 
         <script type='text/template' id='time_section_template'>
-            <div id='time_section' class='clearfix' data-layer='<%= layer %>'>
+            <div class='time_section clearfix' data-layer='<%= layer %>'>
                 <div id='time'> <%= text.ttime %> </div>
                 <div id='time_desc'> <%= text.time_desc %> </div> 
             </div>

@@ -4,7 +4,8 @@ var whiteBallots = whiteBallots || {};
 
 /* The text content of the page in English */
 whiteBallots.contentEn = {
-	title : 'The <fc>Power</fc> of the <fh>White Ballot</fh>',
+	// title : 'The <fc>Power</fc> of the <fh>White Ballot</fh>',
+	title: 'THE POWER OF THE <br> WHITE BALLOT',
 	desc : 'The White Ballot symbolizes a strong refusal of the political system and its ruling regime and the electoral law. It doesn’t have a religious confession and is the only constant voice across Lebanon. ',
 	content: [
 		{
@@ -13,13 +14,8 @@ whiteBallots.contentEn = {
 			// need to add map layer
 		},
 		{
-			ttime : '2005',
+			ttime : '2009',
 			time_desc : 'The Lebanese government recognizes the white ballot as an electoral voice.'
-			// need to add map layer
-		},
-		{
-			ttime : '2013',
-			time_desc : ' What role will the white ballot play in the upcoming elections? '
 			// need to add map layer
 		}
 	]
@@ -36,7 +32,7 @@ whiteBallots.contentAr = {
 			// need to add map layer
 		},
 		{
-			ttime : '2005',
+			ttime : '2009',
 			time_desc : 'The Lebanese government recognizes the white ballot as an electoral voice.'
 			// need to add map layer
 		},
@@ -48,34 +44,55 @@ whiteBallots.contentAr = {
 	]
 }
 
-whiteBallots.contentMap = {
+whiteBallots.mapContent = {
 	baseMap : 'mayakreidieh.map-dfh9esrb', 
 	layers : [
-		'mayakreidieh.t2',
-		'mayakreidieh.t2',
+		'mayakreidieh.t1',
+		'mayakreidieh.testt',
 		'mayakreidieh.t2'
+	], 
+	templates : [
+		" <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blanc_20_1}}</div>",
+		" <div id='tloc'>{{District}}</div> <div id='tnum'>{{blank_vote}}</div>",
+		""
 	]
 }
 
 /* @desc 
  */
-whiteBallots.renderMap = function(){
-	// init Map object, bind it to #map div
-	this.map = L.map('map').setView([33.9, 35], 9);
+whiteBallots.renderMap = function(  yearIndex ){
 
-	// load each layer and add it to the map
-	// note that the layer order matters, they overlay each other
-	var layerUrls = ['mayakreidieh.map-dfh9esrb', 'mayakreidieh.t4'];
+	if (yearIndex == undefined){
+		// init Map object, bind it to #map div
+		this.map = L.map('map').setView([33.9, 35], 9);
 
+		// load each layer and add it to the map
+		// note that the layer order matters, they overlay each other
+		this.map.addLayer( L.mapbox.tileLayer(this.mapContent.baseMap));
+		this.map.addLayer( L.mapbox.tileLayer(this.mapContent.layers[0]));
+		var tooltipTemplate = " <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blanc_20_1}}</div>"
+		var gridLayer = L.mapbox.gridLayer('mayakreidieh.t4').addTo(this.map);
+		var gridControl = L.mapbox.gridControl(gridLayer, {template: tooltipTemplate, follow: false,}).addTo(this.map);
 
-	for (var i=0;i<layerUrls.length;i++){
-		var layer = L.mapbox.tileLayer(layerUrls[i]);
-		this.map.addLayer(layer);
+	} else {
+
+		for (var i=0;i<this.mapContent.layers.length;i++){
+			var layer = L.mapbox.tileLayer(this.mapContent.layers[i]);
+			console.log(layer);
+			console.log(this.map);
+			console.log(this.map.hasLayer(layer));
+			if ( (this.map.hasLayer(layer)) && i!==yearIndex){
+				map.removeLayer(layer);
+				console.log('removing layer');
+			}
+			if (!this.map.hasLayer(layer) && i==yearIndex){
+				this.map.addLayer( layer );
+				var tooltipTemplate = this.mapContent.templates[ yearIndex ];
+				var gridLayer = L.mapbox.gridLayer( this.mapContent.layers[ yearIndex ] ).addTo(this.map);
+				var gridControl = L.mapbox.gridControl(gridLayer, {template: tooltipTemplate, follow: false,}).addTo(this.map);
+			}
+		}
 	}
-	var tooltipTemplate = " <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blanc_20_1}}</div>"
-	var gridLayer = L.mapbox.gridLayer('mayakreidieh.t4').addTo(this.map);
-	var gridControl = L.mapbox.gridControl(gridLayer, {template: tooltipTemplate, follow: false,}).addTo(this.map);
-
 }
 
 /* @desc 	Renders the text of the page using the templates and the corresponding text
@@ -96,8 +113,8 @@ whiteBallots.renderText = function( lang ){
 	$(".text_overlay.ar").html(_.template( template,  this.contentAr));
 
     for (var i=0;i<this.contentEn.content.length;i++){
-	    $(".text_overlay.en").append(_.template( template2, { text : this.contentEn.content[i], layer : this.contentMap.layers[i]} ));
-	    $(".text_overlay.ar").append(_.template( template2, { text : this.contentAr.content[i], layer : this.contentMap.layers[i]} ));
+	    $(".text_overlay.en").append(_.template( template2, { text : this.contentEn.content[i], layer : this.mapContent.layers[i]} ));
+	    $(".text_overlay.ar").append(_.template( template2, { text : this.contentAr.content[i], layer : this.mapContent.layers[i]} ));
     }
 
     // On clicking a new year, display the map layer or data for that year
@@ -146,6 +163,8 @@ whiteBallots.transText = function(lang){
 		$('.text_overlay.en').fadeIn('200');
 	}
 }
+
+
 
 
 $('document').ready(function(){

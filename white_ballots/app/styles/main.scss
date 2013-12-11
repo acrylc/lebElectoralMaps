@@ -3,10 +3,15 @@
 
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+@import url(http://fonts.googleapis.com/css?family=Abel:400,600,700);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,600,700);
+
 
 @import 'sass-bootstrap/lib/bootstrap';
 @import url(http://fonts.googleapis.com/css?family=Lato);
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,600,700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:100,400,300);
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,400,300);
 
 
 $red: rgb(200,100,100);
@@ -16,7 +21,9 @@ html, body{
 	width:100%;
 	height:100%;
 	position:relative;
-	font-family : Helvetica, 'Lato', sans-serif;
+	font-family : Helvetica, sans-serif;
+	font-weight:700;
+
 }
 .hero-unit {
     margin: 50px auto 0 auto;
@@ -41,22 +48,25 @@ html, body{
 
 h1{
 	margin: 0 0 40px 0 ;
+	padding-left: 35px;
+	border-left: 10px solid saturate($red, 20%);
+	font-weight: 700;
 }
 
 .text_overlay{
 
 	margin:150px 0 150px 10%;
 	padding: 20px;
-	color : rgb(50,50,70);
+	color : rgb(40,40,40);
 	background-color: rgba(255,255,255,0.7);
 
 	width:50%;
+	max-width: 450px;
 	position:absolute;
 	top:0px;
 	left:0px;
 	z-index: 4;
 	font-size: 1.3em;
-	max-width: 600px;
 
 	p{
 	max-width:550px;
@@ -67,6 +77,9 @@ h1{
 
 	#desc{
 		font-weight: 100;
+		font-size:1em;
+		font-family: Abel, "Lora", serif;
+		color: rgb(120,120,120);
 	}
 }
 
@@ -90,22 +103,39 @@ p{
 }
 #time, #time_desc{
 	display:inline-block;
-	float:left;
 	padding: 10px 0 10px 0;
-	line-height: 1.3em;
+	font-family: "Lato", serif;
+	font-weight: 800;
 
 }
 
-#time{
-	font-size: 1.2em;
-	margin: 0 40px 0 0 ;
-	font-weight: 700;
-}
 
 #time_desc{
-	max-width:490px;
-	font-size: 1.1em;
+	font-family: "Raleway";
+	font-weight: 400;
+	font-size:0.8em;
+	margin: 0 0 20px 50px;
 }
+#timepicker{
+	display:inline-block;
+	margin-top: 15px;
+	width:15px;
+	height:15px;
+	background-color:rgb(200,200,190);
+	background-color:$red;
+	background-color: black;
+	border-radius: 50%;
+	float:left;
+}
+#time{
+
+	font-size: 2em;
+	margin: 0 40px 0 35px;
+	font-weight: 700;
+//	color: saturate($red,20%);
+}
+
+
 
 ul#social{
 	margin:40px 0 0 0;
@@ -126,9 +156,7 @@ ul#social{
 			float: left;
 		}
 	}
-	#time{
-		margin: 0 40px 0 0;
-	}
+
 
 }
 
@@ -150,31 +178,37 @@ ul#social{
 	z-index: 100;
 	position:absolute;
 	top:0px;
-	right: 50px;
+	right: 0;
+	width:100%;
 	font-size:1em;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+	background-color: rgb(35,35,35);
+
+	li{
+
+	}
 }
 
 
 $col : rgb(40,40,60);
 .langbtn{
-	padding: 15px;
+	padding: 10px;
+
 	text-align: center;
 	display:inline-block;
 	min-width:30px;
-	margin:0px;
-	float:left;
+	margin-right:10px;
+	float:right;
+	font-size:0.9em;
+	font-weight: 400;
 
-	background-color: rgb(40,40,60);
 	color: white;
 	@include transition(background-color 200ms ease-in);
 	cursor: pointer;
 
 	&:hover{
 		@include transition(background-color 200ms ease-in);
-
-		background-color: desaturate(lighten(rgb(40,40,60), 60%),20%);
-		color: $col;
-		background-color: white;
+		background-color: rgb(60,60,60);
 	}
 }
 .langbtn:last-child{

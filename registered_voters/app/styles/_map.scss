@@ -1,0 +1,107 @@
+
+#map_container, #map, #map2{
+	width:100%;
+	height:95%;
+	background-color: white;
+	top:0px;
+	left:0px;
+}
+#map, #map2{
+	height:100%;
+	position: absolute;
+}
+
+#map2{
+	position: absolute;
+	opacity:0;
+}
+
+// Tooltip styling
+
+ .map-tooltip{
+
+ 	box-shadow:none !important;
+ 	border:none !important;
+ 	border-radius: 0px !important;
+	position: fixed !important;
+	right:50px !important;
+	bottom: 50px;
+	height: 6.5em;
+	text-align: center;
+	z-index: 10;
+}
+
+#tloc{
+	font-family: Helvetica, sans-serif;
+	font-weight:400;
+	font-size: 1.3em;
+	color: rgb(100,100,100);
+	padding-bottom: 0.8em;
+}
+
+#tnum{
+	font-family: Helvetica, sans-serif;
+	font-color: rgb(40,40,60);
+	font-size:4em;
+	font-weight: 800;
+
+}
+
+
+.text_overlay{
+
+	margin:150px 0 150px 10%;
+	padding: 20px;
+	color : rgb(40,40,40);
+	background-color: rgba(255,255,255,0.7);
+
+	width:50%;
+	max-width: 450px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index: 4;
+	font-size: 1.3em;
+
+	p{
+	max-width:550px;
+	text-align: justify;
+	line-height: 1.4em;
+	margin: 30px 0 20px 0;
+	}
+
+	#desc{
+		font-weight: 400;
+		font-size:0.9em;
+		font-family: "Lato", Helvetica Neue, serif;
+		padding-left: 50px;
+		color: rgb(120,120,120);
+
+	}
+}
+
+.text_overlay.en{
+	text-align: left;
+	
+	.time_section{
+		#time, #time_desc{
+			float: left;
+		}
+	}
+
+
+}
+
+.text_overlay.ar{
+	text-align: right;
+	
+	.time_section{
+		#time, #time_desc{
+			float: right;
+		}
+	}
+	#time{
+		margin: 0 0 0 40px;
+	}
+
+}

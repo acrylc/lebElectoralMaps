@@ -1,0 +1,47 @@
+@import "compass/css3";
+
+@import "compass/css3/transform-legacy";
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+#arrow{
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 15px 23px 15px;
+	border-color: transparent transparent #080808 transparent;
+	position:relative;
+	top:-50px;
+	left:50px;
+	@include rotate(0deg);
+	@include transition(transform 50ms linear);
+}
+#arrow:before{
+}
+
+#arrow:hover{
+	@include rotate(180deg);
+	@include transition(transform 50ms linear);
+}
+
+

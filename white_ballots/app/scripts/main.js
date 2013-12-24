@@ -5,7 +5,8 @@ var whiteBallots = whiteBallots || {};
 /* The text content of the page in English */
 whiteBallots.contentEn = {
 	// title : 'The <fc>Power</fc> of the <fh>White Ballot</fh>',
-	title: '<span style="font-family: serif !important;font-weight:700;font-size:0.8em"> The power of the </span><br> <span style="font-family:Helvetica Neue;font-weight: 100">W H I T E  .  B A L L O T</span>',
+	// title: '<span style="font-family: serif !important;font-weight:700;font-size:0.8em"> The power of the </span><br> <span style="font-family:Helvetica Neue;font-weight: 100">W H I T E  .  B A L L O T</span>',
+	title: '<span style="font-family: Helvetica Neue !important;font-weight:700;font-size:0.8em"> THE POWER OF THE </span><br> <span style="font-family:Helvetica Neue;font-weight: 100">W H I T E  .  B A L L O T</span>',
 	desc : 'The White Ballot symbolizes a strong refusal of the political system and its ruling regime and the electoral law. It doesn’t have a religious confession and is the only constant voice across Lebanon. ',
 	content: [
 		{
@@ -65,6 +66,7 @@ whiteBallots.renderMap = function(  yearIndex ){
 	if (yearIndex == undefined){
 		// init Map object, bind it to #map div
 		this.map = L.map('map').setView([33.9, 35], 9);
+		this.map.scrollWheelZoom.disable();
 
 		// load each layer and add it to the map
 		// note that the layer order matters, they overlay each other

@@ -1,10 +1,7 @@
 
-// Map content contains 
-// @baseMap 	The base map layer (grayscale map)
-// @layers		An array The infographic layers
-// @templates 	An array of templates that might be called
-//				in renderMap or renderText
-mapContent = {
+var registeredVoters = registeredVoters || {};
+
+registeredVoters.mapContent = {
 	baseMap : 'mayakreidieh.map-dfh9esrb', 
 	layers : [
 		'mayakreidieh.r3',
@@ -18,8 +15,9 @@ mapContent = {
 	]
 }
 
-
-renderMap = function(  yearIndex ){
+/* @desc 
+ */
+registeredVoters.renderMap = function(  yearIndex ){
 
 	if (yearIndex == undefined){
 		// init Map object, bind it to #map div
@@ -55,28 +53,64 @@ renderMap = function(  yearIndex ){
 	}
 }
 
-// Content of text overlay, could include 
-//		Title
-//		Description
-//		Map control details
-/* EN */
-contentEn = {
-	// title : 'The <fc>Power</fc> of the <fh>White Ballot</fh>',
-	// title: '<span style="font-family: serif !important;font-weight:700;font-size:0.8em"> The power of the </span><br> <span style="font-family:Helvetica Neue;font-weight: 100">W H I T E  .  B A L L O T</span>',
-	title: 'REGISTERED VOTERS',
-	desc : 'The White Ballot symbolizes a strong refusal of the political system and its ruling regime and the electoral law. It doesn’t have a religious confession and is the only constant voice across Lebanon. '
+/* @desc 	Renders the text of the page using the templates and the corresponding text
+ * 			Call this function to translate the text to another language
+ * @param	lang 	An language, ar or en, defines which text object to display and how to 
+ *					style the content (ex. left vs right alignment)
+ */
+registeredVoters.renderText = function( lang ){
+
+	$('.text_overlay').html('');
+	$('.text_overlay.ar').css({'display':'none'});
+    var template = $("#text_overlay_template").html();
+    var template2 = $("#time_section_template").html();
+
+	if (lang == undefined)
+		lang = 'en';
+	$(".text_overlay.en").html(_.template( template,  this.contentEn));
+	$(".text_overlay.ar").html(_.template( template,  this.contentAr));
+
 }
 
-/* AR */
-contentAr = {
-	title : 'قوة <fh>الاقتراع بيضاء</fh>',
-	desc : 'الاقتراع الأبيض يرمز إلى رفض قوي من النظام السياسي ونظام الحكم والقانون الانتخابي. أنه ليس لديه اعتراف الدينية وصوت الثابت الوحيد في لبنان.'
+/* @desc 	Renders the contents of the HTML page by first
+ *			displaying the map
+ *			then loading the proper content (by lang) and dispalying it
+ */
+registeredVoters.renderContents = function( lang ){
+	
+	if (lang == undefined)
+		lang = 'en';
+	this.renderMap();
+	this.renderText(lang);
 }
 
-registeredVoters = new Map(mapContent, contentEn, contentAr, renderMap);
+registeredVoters.init = function(){
+	registeredVoters.renderContents();
+	var that = this;
+
+	$('.langbtn').on('click', function(e){
+		that.transText($(e.toElement).attr('id'));
+	});
+}
+
+registeredVoters.transText = function(lang){
+	if (lang == 'ar'){
+		$('#ar').html('EN');
+		$('#ar').attr('id', 'en');
+		$('.text_overlay.ar').fadeIn('200');
+		$('.text_overlay.en').fadeOut('150');
+	} else {
+		$('#en').html('ع');
+		$('#en').attr('id', 'ar');
+
+		$('.text_overlay.ar').fadeOut('150');
+		$('.text_overlay.en').fadeIn('200');
+	}
+}
+
 
 $('document').ready(function(){
-	// baseMap.init();
+	baseMap.init();
 	registeredVoters.init();
 });
 

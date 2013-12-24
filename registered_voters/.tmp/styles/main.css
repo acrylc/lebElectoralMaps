@@ -161,7 +161,7 @@ html[xmlns] .clearfix {
 
 #map2 {
   position: absolute;
-  opacity: 0;
+  opacity: 1;
 }
 
 @media -sass-debug-info {

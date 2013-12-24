@@ -21,7 +21,7 @@ mapContent = {
 // Content of text overlay, could include 
 //		Title
 //		Description
-//		Map control details
+//		Map control detail
 /* EN */
 contentEn = {
 	// title : 'The <fc>Power</fc> of the <fh>White Ballot</fh>',

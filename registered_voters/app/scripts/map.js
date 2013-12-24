@@ -56,6 +56,9 @@ Map.prototype.renderText = function( lang ){
 		lang = 'en';
 	$(".text_overlay.en").html(_.template( template,  this.contentEn));
 	$(".text_overlay.ar").html(_.template( template,  this.contentAr));
+
+	this.renderTextCallback();
+
 }
 
 

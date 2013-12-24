@@ -38,6 +38,7 @@ contentAr = {
 registeredVoters = new Map(mapContent, contentEn, contentAr);
 
 $('document').ready(function(){
-	registeredVoters.init();
+	// registeredVoters.init();
+	whiteBallots.init();
 });
 

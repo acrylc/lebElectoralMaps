@@ -1,14 +1,44 @@
-Map = function( mapContent, contentEn, contentAr, renderMapFunc ){
+Map = function( mapContent, contentEn, contentAr ){
 	this.mapContent = mapContent;
 	this.contentEn = contentEn;
 	this.contentAr = contentAr;
-	this.renderMap = renderMapFunc;
 }
-
 
 
 Map.mapContent = {};
 
+Map.prototype.renderMap = function(  layerIndex  ){
+
+	if (layerIndex == undefined){
+		// init Map object, bind it to #map div
+		this.map = L.map('map2').setView([33.9, 35], 9);
+		this.map.scrollWheelZoom.disable();
+
+		// load each layer and add it to the map
+		// note that the layer order matters, they overlay each other
+		this.map.addLayer( L.mapbox.tileLayer(this.mapContent.baseMap));
+		layerIndex = 0;
+	}
+
+	for (var i=0;i<this.mapContent.layers.length;i++){
+		var layer = L.mapbox.tileLayer(this.mapContent.layers[i]);
+		console.log(layer);
+		console.log(this.map);
+		console.log(this.map.hasLayer(layer));
+		if ( (this.map.hasLayer(layer)) && i!==layerIndex){
+			map.removeLayer(layer);
+			console.log('removing layer');
+		}
+		if (!this.map.hasLayer(layer) && i==layerIndex){
+			console.log('adding layer '+i);
+			this.map.addLayer( layer );
+			var tooltipTemplate = this.mapContent.templates[ layerIndex ];
+			var gridLayer = L.mapbox.gridLayer( this.mapContent.layers[ layerIndex ] ).addTo(this.map);
+			var gridControl = L.mapbox.gridControl(gridLayer, {template: tooltipTemplate, follow: false,}).addTo(this.map);
+		}
+	}
+	
+}
 
 /* @desc 	Renders the text of the page using the templates and the corresponding text
  * 			Call this function to translate the text to another language
@@ -26,7 +56,6 @@ Map.prototype.renderText = function( lang ){
 		lang = 'en';
 	$(".text_overlay.en").html(_.template( template,  this.contentEn));
 	$(".text_overlay.ar").html(_.template( template,  this.contentAr));
-
 }
 
 

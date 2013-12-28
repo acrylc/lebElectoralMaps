@@ -78,25 +78,43 @@ whiteBallots.renderMapCallback = function(){
 
 	$.getJSON('blanc_2005.geojson', function(response){
        whiteBallotData = response;
-        markers = new L.markerClusterGroup(({
-	    	iconCreateFunction: function(cluster) {
-	    		console.log(cluster.getAllChildMarkers()[0].data );
-	    		var total = 0;
-	    		for(var i=0;i<cluster.getAllChildMarkers().length;i++){
-	    			total += Number(cluster.getAllChildMarkers()[i].data);
-	    		}
-	        	return new L.DivIcon({ html: '<p>' + total + '</p>' , className:'my-div-icon2'});
-	    	}
+       whiteBallots.min = 0;
+       whiteBallots.max = 13994;
+
+
+       var max = 13994/2;
+       var min = whiteBallotData.features[0].properties.blanc_20_1;
+
+      
+		for (var i=0;i<whiteBallotData.features.length;i++){
+			if (whiteBallotData.features[i].properties.blanc_20_1 > max)
+				max = whiteBallotData.features[i].properties.blanc_20_1;
+			if (whiteBallotData.features[i].properties.blanc_20_1 < min)
+				min = whiteBallotData.features[i].properties.blanc_20_1;
+		}
+
+              markers = new L.markerClusterGroup(({
+			iconCreateFunction: function(cluster) {
+				console.log(cluster.getAllChildMarkers()[0].data );
+				var total = 0;
+				for(var i=0;i<cluster.getAllChildMarkers().length;i++){
+					total += Number(cluster.getAllChildMarkers()[i].data);
+				}
+				var col = ((total-min)/(max-min)*(360-220)+220);
+				if (col >= 360 )col = 360;
+		    	return new L.DivIcon({ html: '<p style ="background-color:hsla('+ col +',100%,68%,0.7)" >' + total + '</p>' , className:'my-div-icon2'});
+			}
 		}));
 
-       for (var i=0;i<whiteBallotData.features.length;i++){
+		for (var i=0;i<whiteBallotData.features.length;i++){
        	whiteBallotData.features[i].geometry.type = "Point";
        	whiteBallotData.features[i].geometry.coordinates = whiteBallotData.features[i].geometry.coordinates[0][0];
        	geojsonFeature = whiteBallotData.features[i];
        	var myIcon =  L.divIcon({
        		className: 'my-div-icon',
-       		html: '<p>'+whiteBallotData.features[i].properties.blanc_20_2+'</p>'
+       		html: '<p style="background-color:hsla('+ ((whiteBallotData.features[i].properties.blanc_20_1-min)/(max-min)*(360-220)+220) +',100%,65%,0.6)">'+whiteBallotData.features[i].properties.blanc_20_2+'</p>'
        	});
+  
        	var marker = new L.marker(new  L.latLng( [geojsonFeature.geometry.coordinates[1],geojsonFeature.geometry.coordinates[0]]), {icon:myIcon});
        	marker.data = whiteBallotData.features[i].properties.blanc_20_2;
        	markers.addLayer(marker);
@@ -105,8 +123,11 @@ whiteBallots.renderMapCallback = function(){
 
        }
        whiteBallots.map.addLayer(markers);
-
        whiteBallots.data = whiteBallotData;
+
+
+
+
 
 	})
 

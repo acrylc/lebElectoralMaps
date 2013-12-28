@@ -1,9 +1,9 @@
 mapContent = {
 	baseMap : 'mayakreidieh.map-dfh9esrb', 
 	layers : [
-		'mayakreidieh.t7',
-		'mayakreidieh.testt',
-		'mayakreidieh.t2'
+		// 'mayakreidieh.t7',
+		// 'mayakreidieh.testt',
+		// 'mayakreidieh.t2'
 	], 
 	templates : [
 		" <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blanc_20_1}}</div>",
@@ -73,3 +73,41 @@ whiteBallots.renderTextCallback = function(){
 		this.map.addLayer(layer);
     });
 };
+
+whiteBallots.renderMapCallback = function(){
+
+	$.getJSON('blanc_2005.geojson', function(response){
+       whiteBallotData = response;
+        markers = new L.markerClusterGroup(({
+	    	iconCreateFunction: function(cluster) {
+	    		console.log(cluster.getAllChildMarkers()[0].data );
+	    		var total = 0;
+	    		for(var i=0;i<cluster.getAllChildMarkers().length;i++){
+	    			total += Number(cluster.getAllChildMarkers()[i].data);
+	    		}
+	        	return new L.DivIcon({ html: '<p>' + total + '</p>' , className:'my-div-icon2'});
+	    	}
+		}));
+
+       for (var i=0;i<whiteBallotData.features.length;i++){
+       	whiteBallotData.features[i].geometry.type = "Point";
+       	whiteBallotData.features[i].geometry.coordinates = whiteBallotData.features[i].geometry.coordinates[0][0];
+       	geojsonFeature = whiteBallotData.features[i];
+       	var myIcon =  L.divIcon({
+       		className: 'my-div-icon',
+       		html: '<p>'+whiteBallotData.features[i].properties.blanc_20_2+'</p>'
+       	});
+       	var marker = new L.marker(new  L.latLng( [geojsonFeature.geometry.coordinates[1],geojsonFeature.geometry.coordinates[0]]), {icon:myIcon});
+       	marker.data = whiteBallotData.features[i].properties.blanc_20_2;
+       	markers.addLayer(marker);
+
+       	       // L.geoJson(geojsonFeature).addTo(whiteBallots.map);
+
+       }
+       whiteBallots.map.addLayer(markers);
+
+       whiteBallots.data = whiteBallotData;
+
+	})
+
+}

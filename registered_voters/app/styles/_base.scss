@@ -45,3 +45,21 @@ html[xmlns] .clearfix {
 }
 
 
+.my-div-icon,.my-div-icon2{
+	width:35px !important;
+	height:35px !important;
+	border-radius: 50%;
+	background-color:rgba(255,0,0,0.5);
+	font-size:13px;
+	p{
+		margin-top:8px;
+		width:100%;
+		text-align:center;
+	}
+}
+.my-div-icon2{
+	width: 40px !important;
+	height: 40px !important;
+	border: 10px solid rgba(250,250,250,0.5);
+}
+

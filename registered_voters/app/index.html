@@ -16,7 +16,18 @@
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
             <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js?2"></script>
          
+            <link rel="stylesheet" href="scripts/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="scripts/dist/MarkerCluster.Default.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="../dist/MarkerCluster.Default.ie.css" /><![endif]-->
+        <script src="scripts/dist/leaflet.markercluster.js"></script>
+
+    <script src="scripts/dist/leaflet.markercluster-src.js"></script>
+
   <!--[if lte IE 8]>
     <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.ie.css' rel='stylesheet' />
   <![endif]-->
@@ -78,6 +89,18 @@
             </ul>
         </script>
 
+            <!-- // <script src="scripts/leaflet.js"></script> -->
+
+         <script src="scripts/DistanceGrid.js"></script>
+
+         <script src="scripts/MarkerCluster.js"></script>
+                  <script src="scripts/MarkerClusterGroup.js"></script>
+
+         <script src="scripts/MarkerCluster.js"></script>
+         <script src="scripts/MarkerCluster.Spiderfier.js"></script>
+         <script src="scripts/MarkerCluster.QuickHull.js"></script>
+
+
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
@@ -85,7 +108,6 @@
         <!-- endbuild -->
         <!-- build:js scripts/main.js -->
         <script src='http://underscorejs.org/underscore-min.js'></script>
-        <script src='http://www.blurjs.com/blur.js'></script>
         <script src="scripts/text_content.js"></script>
         <script src="scripts/base_map.js"></script>
         <script src="scripts/map.js"></script>

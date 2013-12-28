@@ -37,6 +37,8 @@ Map.prototype.renderMap = function(  layerIndex  ){
 			var gridControl = L.mapbox.gridControl(gridLayer, {template: tooltipTemplate, follow: false,}).addTo(this.map);
 		}
 	}
+
+	this.renderMapCallback();
 	
 }
 

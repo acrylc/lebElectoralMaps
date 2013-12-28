@@ -82,7 +82,7 @@ whiteBallots.renderMapCallback = function(){
        whiteBallots.max = 13994;
 
 
-       var max = 13994/2;
+       var max = 13994/4;
        var min = whiteBallotData.features[0].properties.blank_vote;
 
       
@@ -102,7 +102,7 @@ whiteBallots.renderMapCallback = function(){
 				}
 				var col = ((total-min)/(max-min)*(360-220)+220);
 				if (col >= 360 )col = 360;
-		    	return new L.DivIcon({ html: '<p style ="background-color:hsla('+ col +',100%,68%,0.7)" >' + total + '</p>' , className:'my-div-icon2'});
+		    	return new L.DivIcon({ html: '<p style ="background-color:hsla('+ col +',70%,55%,0.6);border-color:hsla('+ col +',40%,25%,0.6)" ><span>' + total + '</span></p>' , className:'my-div-icon2'});
 			}
 		}));
 
@@ -112,7 +112,7 @@ whiteBallots.renderMapCallback = function(){
        	geojsonFeature = whiteBallotData.features[i];
        	var myIcon =  L.divIcon({
        		className: 'my-div-icon',
-       		html: '<p style="background-color:hsla('+ ((whiteBallotData.features[i].properties.blank_vote-min)/(max-min)*(360-220)+220) +',100%,65%,0.6)">'+whiteBallotData.features[i].properties.blank_vote+'</p>'
+       		html: '<p style="background-color:hsla('+ ((whiteBallotData.features[i].properties.blank_vote-min)/(max-min)*(360-220)+220) +',70%,55%,0.6)"><span>'+whiteBallotData.features[i].properties.blank_vote+'</span></p>'
        	});
   
        	var marker = new L.marker(new  L.latLng( [geojsonFeature.geometry.coordinates[1],geojsonFeature.geometry.coordinates[0]]), {icon:myIcon});

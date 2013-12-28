@@ -6,7 +6,7 @@ mapContent = {
 		// 'mayakreidieh.t2'
 	], 
 	templates : [
-		" <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blanc_20_1}}</div>",
+		" <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blank_vote}}</div>",
 		" <div id='tloc'>{{District}}</div> <div id='tnum'>{{blank_vote}}</div>",
 		""
 	]
@@ -76,21 +76,21 @@ whiteBallots.renderTextCallback = function(){
 
 whiteBallots.renderMapCallback = function(){
 
-	$.getJSON('blanc_2005.geojson', function(response){
+	$.getJSON('2009_white_ballots.geojson', function(response){
        whiteBallotData = response;
        whiteBallots.min = 0;
        whiteBallots.max = 13994;
 
 
        var max = 13994/2;
-       var min = whiteBallotData.features[0].properties.blanc_20_1;
+       var min = whiteBallotData.features[0].properties.blank_vote;
 
       
 		for (var i=0;i<whiteBallotData.features.length;i++){
-			if (whiteBallotData.features[i].properties.blanc_20_1 > max)
-				max = whiteBallotData.features[i].properties.blanc_20_1;
-			if (whiteBallotData.features[i].properties.blanc_20_1 < min)
-				min = whiteBallotData.features[i].properties.blanc_20_1;
+			if (whiteBallotData.features[i].properties.blank_vote > max)
+				max = whiteBallotData.features[i].properties.blank_vote;
+			if (whiteBallotData.features[i].properties.blank_vote < min)
+				min = whiteBallotData.features[i].properties.blank_vote;
 		}
 
               markers = new L.markerClusterGroup(({
@@ -107,16 +107,16 @@ whiteBallots.renderMapCallback = function(){
 		}));
 
 		for (var i=0;i<whiteBallotData.features.length;i++){
-       	whiteBallotData.features[i].geometry.type = "Point";
-       	whiteBallotData.features[i].geometry.coordinates = whiteBallotData.features[i].geometry.coordinates[0][0];
+       	// whiteBallotData.features[i].geometry.type = "Point";
+       	// whiteBallotData.features[i].geometry.coordinates = whiteBallotData.features[i].geometry.coordinates[0][0];
        	geojsonFeature = whiteBallotData.features[i];
        	var myIcon =  L.divIcon({
        		className: 'my-div-icon',
-       		html: '<p style="background-color:hsla('+ ((whiteBallotData.features[i].properties.blanc_20_1-min)/(max-min)*(360-220)+220) +',100%,65%,0.6)">'+whiteBallotData.features[i].properties.blanc_20_2+'</p>'
+       		html: '<p style="background-color:hsla('+ ((whiteBallotData.features[i].properties.blank_vote-min)/(max-min)*(360-220)+220) +',100%,65%,0.6)">'+whiteBallotData.features[i].properties.blank_vote+'</p>'
        	});
   
        	var marker = new L.marker(new  L.latLng( [geojsonFeature.geometry.coordinates[1],geojsonFeature.geometry.coordinates[0]]), {icon:myIcon});
-       	marker.data = whiteBallotData.features[i].properties.blanc_20_2;
+       	marker.data = whiteBallotData.features[i].properties.blank_vote;
        	markers.addLayer(marker);
 
        	       // L.geoJson(geojsonFeature).addTo(whiteBallots.map);

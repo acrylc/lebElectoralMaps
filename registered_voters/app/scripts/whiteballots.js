@@ -1,7 +1,7 @@
 mapContent = {
 	baseMap : 'mayakreidieh.map-dfh9esrb', 
 	layers : [
-		'mayakreidieh.t1',
+		'mayakreidieh.t7',
 		'mayakreidieh.testt',
 		'mayakreidieh.t2'
 	], 

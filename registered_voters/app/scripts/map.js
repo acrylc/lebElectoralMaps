@@ -87,13 +87,13 @@ Map.prototype.transText = function(lang){
 	if (lang == 'ar'){
 		$('#ar').html('EN');
 		$('#ar').attr('id', 'en');
-		$('.text_overlay.ar').fadeIn('200');
-		$('.text_overlay.en').fadeOut('150');
+		$('.text_overlay.ar').fadeIn('10');
+		$('.text_overlay.en').fadeOut('10');
 	} else {
 		$('#en').html('ع');
 		$('#en').attr('id', 'ar');
 
-		$('.text_overlay.ar').fadeOut('150');
-		$('.text_overlay.en').fadeIn('200');
+		$('.text_overlay.ar').fadeOut('10');
+		$('.text_overlay.en').fadeIn('10');
 	}
 }

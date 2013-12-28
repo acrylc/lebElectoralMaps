@@ -53,6 +53,7 @@ registeredVoters.renderMap = function(  yearIndex ){
 	}
 }
 
+//ok
 /* @desc 	Renders the text of the page using the templates and the corresponding text
  * 			Call this function to translate the text to another language
  * @param	lang 	An language, ar or en, defines which text object to display and how to 
@@ -72,6 +73,7 @@ registeredVoters.renderText = function( lang ){
 
 }
 
+//ok
 /* @desc 	Renders the contents of the HTML page by first
  *			displaying the map
  *			then loading the proper content (by lang) and dispalying it
@@ -84,6 +86,7 @@ registeredVoters.renderContents = function( lang ){
 	this.renderText(lang);
 }
 
+//ok
 registeredVoters.init = function(){
 	registeredVoters.renderContents();
 	var that = this;
@@ -93,6 +96,7 @@ registeredVoters.init = function(){
 	});
 }
 
+//ok
 registeredVoters.transText = function(lang){
 	if (lang == 'ar'){
 		$('#ar').html('EN');

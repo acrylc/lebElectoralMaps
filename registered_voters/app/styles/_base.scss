@@ -51,6 +51,10 @@ html[xmlns] .clearfix {
 	border-radius: 50%;
 //	background-color:rgba(255,0,0,0.5);
 	p{
+			left: -50% !important;
+	top:-50% !important;
+	position:relative;
+
 		width:100%;
 		text-align:center;
 		height:100%;

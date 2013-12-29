@@ -1,0 +1,599 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 1,
+        "NAME_1": "An Nabatiyah",
+        "ID_2": 1,
+        "NAME_2": "Bent Jbayl",
+        "VARNAME_2": "Bint Jbayl|Bent Jbaï¿½l|Bint Jbeil|Bent Jbeil",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 348
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.40430603200621,
+          33.147600048367096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 1,
+        "NAME_1": "An Nabatiyah",
+        "ID_2": 4,
+        "NAME_2": "Nabatiyeh",
+        "VARNAME_2": "Nabatiyye|Nabatï¿½ye|el Nabatieh|Nabatieh",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 573
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.44972197832799,
+          33.38507107533422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 2,
+        "NAME_1": "Beirut",
+        "ID_2": 53,
+        "NAME_2": "Beirut-three",
+        "VARNAME_2": "Beyrouth|Bayrut|Beyrouth",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 1382
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.48788170314488,
+          33.88603233862887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 3,
+        "NAME_1": "Beqaa",
+        "ID_2": 10,
+        "NAME_2": "Zahlï¿½",
+        "VARNAME_2": "Zahleh",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 489
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.940767403698175,
+          33.81461166390432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 4,
+        "NAME_1": "Mount Lebanon",
+        "ID_2": 11,
+        "NAME_2": "Aley",
+        "VARNAME_2": "Aaley|Eleih",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 415
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.61238737658365,
+          33.77151564501113
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 4,
+        "NAME_1": "Mount Lebanon",
+        "ID_2": 12,
+        "NAME_2": "Baabda",
+        "VARNAME_2": null,
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 469
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.67106352057952,
+          33.84286992169409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 4,
+        "NAME_1": "Mount Lebanon",
+        "ID_2": 13,
+        "NAME_2": "Chouf",
+        "VARNAME_2": "Shouf|Choï¿½f|el Chouf",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 1899
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.563438249666575,
+          33.653603041996696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 4,
+        "NAME_1": "Mount Lebanon",
+        "ID_2": 14,
+        "NAME_2": "Jbayl",
+        "VARNAME_2": "Jbail|Jbeil|Byblos",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 219
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.81328481744921,
+          34.12689269458336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 4,
+        "NAME_1": "Mount Lebanon",
+        "ID_2": 15,
+        "NAME_2": "Kesrouan",
+        "VARNAME_2": "Kesroun|Keserwen|Kesrouï¿½ne|Kesrwan|Kesserwan",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 186
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.78789311448897,
+          34.012386088330736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 4,
+        "NAME_1": "Mount Lebanon",
+        "ID_2": 16,
+        "NAME_2": "Matn",
+        "VARNAME_2": "Metn|el Matin",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 500
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.70917763480938,
+          33.91158887249354
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 5,
+        "NAME_1": "North Lebanon",
+        "ID_2": 17,
+        "NAME_2": "Akkar",
+        "VARNAME_2": "Aakkar",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 321
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.186090163679424,
+          34.55109458650625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 5,
+        "NAME_1": "North Lebanon",
+        "ID_2": 18,
+        "NAME_2": "Batroun",
+        "VARNAME_2": "Batroï¿½n|el Batroun",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 124
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.81925870324867,
+          34.223731367023404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 5,
+        "NAME_1": "North Lebanon",
+        "ID_2": 19,
+        "NAME_2": "Bcharrï¿½",
+        "VARNAME_2": "Bsharre|Besharri|Bcharri",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 102
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.98141477299709,
+          34.245264614045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 5,
+        "NAME_1": "North Lebanon",
+        "ID_2": 20,
+        "NAME_2": "Koura",
+        "VARNAME_2": "el Koura|Koura",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 84
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.802446190253065,
+          34.3278935379017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 5,
+        "NAME_1": "North Lebanon",
+        "ID_2": 212,
+        "NAME_2": "Danniyeh",
+        "VARNAME_2": "Dannieh",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 168
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.07413941850337,
+          34.36860039639329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 5,
+        "NAME_1": "North Lebanon",
+        "ID_2": 22,
+        "NAME_2": "Tripoli",
+        "VARNAME_2": "Tripoly",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 829
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.85488680202659,
+          34.43703865556306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 6,
+        "NAME_1": "South Lebanon",
+        "ID_2": 24,
+        "NAME_2": "Jezzine",
+        "VARNAME_2": "Jezzï¿½ne",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 315
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.55543484583666,
+          33.49296255769377
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 6,
+        "NAME_1": "South Lebanon",
+        "ID_2": 251,
+        "NAME_2": "Saida",
+        "VARNAME_2": "Saida|Sidon",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 1734
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.386320512365614,
+          33.55658115461402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 6,
+        "NAME_1": "South Lebanon",
+        "ID_2": 26,
+        "NAME_2": "Sour",
+        "VARNAME_2": "Sour|Tyre|Tyr",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 595
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.27623003805911,
+          33.21238527051636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 6,
+        "NAME_1": "South Lebanon",
+        "ID_2": 252,
+        "NAME_2": "Zahrany",
+        "VARNAME_2": "Zahrany-Qora Saida",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 382
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.354977384722076,
+          33.4447516275034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 2,
+        "NAME_1": "Beirut",
+        "ID_2": 52,
+        "NAME_2": "Beirut-two",
+        "VARNAME_2": "Beyrouth|Bayrut|Beyrouth",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 488
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.512142632298115,
+          33.89976503626097
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 2,
+        "NAME_1": "Beirut",
+        "ID_2": 51,
+        "NAME_2": "Beirut-one",
+        "VARNAME_2": "Beyrouth|Bayrut|Beyrouth",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 731
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.51818326177541,
+          33.885602351937855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 3,
+        "NAME_1": "Beqaa",
+        "ID_2": 6,
+        "NAME_2": "Baalbek-Hermel",
+        "VARNAME_2": "Baalbak|Baelbeck",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 526
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.28645609804956,
+          34.15803863804549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 3,
+        "NAME_1": "Beqaa",
+        "ID_2": 7,
+        "NAME_2": "WestBekaa-Rachaya",
+        "VARNAME_2": "Bekaa-ouest|Beqaa Gharbi|Beqaa Ouest|Western Beqaa|Beqaa al Gharbi",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 405
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.82711888840628,
+          33.57244002412645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 1,
+        "NAME_1": "An Nabatiyah",
+        "ID_2": 2,
+        "NAME_2": "Marjayoun-Hasbaya",
+        "VARNAME_2": "Hasbayya|Hasbaï¿½ya",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 390
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.62438007395321,
+          33.314601663854944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 5,
+        "NAME_1": "North Lebanon",
+        "ID_2": 211,
+        "NAME_2": "Minie",
+        "VARNAME_2": "el Mnieh|Miniye",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 150
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.94365624532924,
+          34.47330860873389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO": "LBN",
+        "NAME_0": "Lebanon",
+        "ID_1": 5,
+        "NAME_1": "North Lebanon",
+        "ID_2": 23,
+        "NAME_2": "Zgharta",
+        "VARNAME_2": "Zghorta",
+        "TYPE_2": "County",
+        "ENGTYPE_2": "County",
+        "invalid_votes": 170
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.92841462459371,
+          34.35342473891366
+        ]
+      }
+    }
+  ]
+}

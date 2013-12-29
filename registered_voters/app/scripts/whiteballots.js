@@ -58,77 +58,103 @@ contentAr = {
 whiteBallots = new Map(mapContent, contentEn, contentAr);
 
 whiteBallots.renderTextCallback = function(){
-	    var template2 = $("#time_section_template").html();
+    var template2 = $("#time_section_template").html();
 
-	    for (var i=0;i<this.contentEn.content.length;i++){
-	    $(".text_overlay.en").append(_.template( template2, { text : this.contentEn.content[i], layer : this.mapContent.layers[i]} ));
-	    $(".text_overlay.ar").append(_.template( template2, { text : this.contentAr.content[i], layer : this.mapContent.layers[i]} ));
+    var ids=['2005text', '2009text']
+    for (var i=0;i<this.contentEn.content.length;i++){
+
+	    $(".text_overlay.en").append(_.template( template2, { id : ids[i] , text : this.contentEn.content[i], layer : this.mapContent.layers[i]} ));
+	    $(".text_overlay.ar").append(_.template( template2, { id : ids[i] , text : this.contentAr.content[i], layer : this.mapContent.layers[i]} ));
     }
 
-    // On clicking a new year, display the map layer or data for that year
-    $(".time_section").on('click', function(e){
-    	var layerUrl = $(e.currentTarget).data(); 
-    	console.log(layer);
-		var layer = L.mapbox.tileLayer(layerUrl);
-		this.map.addLayer(layer);
-    });
+    $('#2005text.time_section').append('<div class="control" id="2005"></div>');
+    $('#2009text.time_section').append('<div class="control" id="2009_invalid">INVALID</div>');
+    $('#2009text.time_section').append('<div class="control" id="2009_white">WHITE</div>');
+
+    var that = this;
+    $('#2005.control').on('click', function(){
+    	that.map.removeLayer(that.markers[1]);
+    	that.map.removeLayer(that.markers[2]);
+    	that.map.addLayer(that.markers[0]);
+    })    
+    $('#2009_invalid.control').on('click', function(){
+    	that.map.removeLayer(that.markers[0]);
+    	that.map.removeLayer(that.markers[2]);
+    	that.map.addLayer(that.markers[1]);
+    })
+    $('#2009_white.control').on('click', function(){
+    	that.map.removeLayer(that.markers[0]);
+    	that.map.removeLayer(that.markers[1]);
+    	that.map.addLayer(that.markers[2]);
+    	console.log('clicked');
+    })
+
 };
+
+var featuresToMarkerLayer = function(features, category){
+
+   var max = 1700;
+   var min = features[0].properties[category];
+
+  
+	for (var i=0;i<features.length;i++){
+		if (features[i].properties[category] > max)
+			max = features[i].properties[category];
+		if (features[i].properties[category] < min)
+			min = features[i].properties[category];
+	}
+
+	markers = new L.markerClusterGroup(({
+	
+	iconCreateFunction: function(cluster) {
+		console.log(cluster.getAllChildMarkers()[0].data );
+		var total = 0;
+		for(var i=0;i<cluster.getAllChildMarkers().length;i++){
+			total += Number(cluster.getAllChildMarkers()[i].data);
+		}
+		var col = ((total-min)/(max-min)*-1*(66-0)+66);
+		if (col < 0 )col = 0;
+    	return new L.DivIcon({ html: '<p style ="background-color:hsla('+ col +',75%,45%,0.7);border-color:hsla('+ col +',40%,35%,0.6)" ><span>' + total + '</span></p>' , className:'my-div-icon2'});
+	}
+	}));
+
+	for (var i=0;i<features.length;i++){
+		geojsonFeature = features[i];
+		var myIcon =  L.divIcon({
+			className: 'my-div-icon',
+			html: '<p style="background-color:hsla('+ ((features[i].properties[category]-min)/(max-min)*-1*(66-0)+66) +',75%,45%,0.6)"><span>'+features[i].properties[category]+'</span></p>'
+		});
+
+		var marker = new L.marker(new  L.latLng( [geojsonFeature.geometry.coordinates[1],geojsonFeature.geometry.coordinates[0]]), {icon:myIcon});
+		marker.data = features[i].properties[category];
+		markers.addLayer(marker);
+	}
+	return markers;
+}
+
+
 
 whiteBallots.renderMapCallback = function(){
 
+	whiteBallots.markers = [];
+
+	// Get 2005 invalid votes, set marker layer  0
+	// And display marker layer
+	$.getJSON('assets/2005.geojson', function(response){
+		whiteBallots.markers[0] = featuresToMarkerLayer(response.features, "invalid_votes");
+		whiteBallots.map.addLayer(whiteBallots.markers[0]);
+	});
+
+	// Get 2009 white votes, set marker layer 1
 	$.getJSON('2009_white_ballots.geojson', function(response){
-       whiteBallotData = response;
-       whiteBallots.min = 0;
-       whiteBallots.max = 13994;
+		whiteBallots.markers[1] = featuresToMarkerLayer(response.features, "blank_vote");
+	});
+
+	// Get 2009 invalid votes, set marker layer 2
+	$.getJSON('2009_white_ballots.geojson', function(response){
+		whiteBallots.markers[2] = featuresToMarkerLayer(response.features, "invalid_vote");
+	});
 
 
-       var max = 13994/4;
-       var min = whiteBallotData.features[0].properties.blank_vote;
-
-      
-		for (var i=0;i<whiteBallotData.features.length;i++){
-			if (whiteBallotData.features[i].properties.blank_vote > max)
-				max = whiteBallotData.features[i].properties.blank_vote;
-			if (whiteBallotData.features[i].properties.blank_vote < min)
-				min = whiteBallotData.features[i].properties.blank_vote;
-		}
-
-              markers = new L.markerClusterGroup(({
-			iconCreateFunction: function(cluster) {
-				console.log(cluster.getAllChildMarkers()[0].data );
-				var total = 0;
-				for(var i=0;i<cluster.getAllChildMarkers().length;i++){
-					total += Number(cluster.getAllChildMarkers()[i].data);
-				}
-				var col = ((total-min)/(max-min)*-1*(66-0)+66);
-				if (col < 0 )col = 0;
-		    	return new L.DivIcon({ html: '<p style ="background-color:hsla('+ col +',65%,45%,0.7);border-color:hsla('+ col +',40%,25%,0.7)" ><span>' + total + '</span></p>' , className:'my-div-icon2'});
-			}
-		}));
-
-		for (var i=0;i<whiteBallotData.features.length;i++){
-       	// whiteBallotData.features[i].geometry.type = "Point";
-       	// whiteBallotData.features[i].geometry.coordinates = whiteBallotData.features[i].geometry.coordinates[0][0];
-       	geojsonFeature = whiteBallotData.features[i];
-       	var myIcon =  L.divIcon({
-       		className: 'my-div-icon',
-       		html: '<p style="background-color:hsla('+ ((whiteBallotData.features[i].properties.blank_vote-min)/(max-min)*-1*(66-0)+66) +',65%,45%,0.6)"><span>'+whiteBallotData.features[i].properties.blank_vote+'</span></p>'
-       	});
-  
-       	var marker = new L.marker(new  L.latLng( [geojsonFeature.geometry.coordinates[1],geojsonFeature.geometry.coordinates[0]]), {icon:myIcon});
-       	marker.data = whiteBallotData.features[i].properties.blank_vote;
-       	markers.addLayer(marker);
-
-       	       // L.geoJson(geojsonFeature).addTo(whiteBallots.map);
-
-       }
-       whiteBallots.map.addLayer(markers);
-       whiteBallots.data = whiteBallotData;
-
-
-
-
-
-	})
 
 }

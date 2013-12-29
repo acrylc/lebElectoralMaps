@@ -63,7 +63,7 @@
         </script>
 
         <script type='text/template' id='time_section_template'>
-            <div class='time_section clearfix' data-layer='<%= layer %>'>
+            <div id='<%= id %>' class='time_section clearfix'>
                 <div id='timepicker'></div>
                 <div id='time'> <%= text.ttime %> </div>
                 <div id='time_desc'> <%= text.time_desc %> </div> 
@@ -108,7 +108,7 @@
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:js scripts/main.js -->
-        <script src='http://underscorejs.org/underscore-min.js'></script>
+        <script src='http://underscorejs.org/underscore-min.js'></script> 
         <script src="scripts/text_content.js"></script>
         <script src="scripts/base_map.js"></script>
         <script src="scripts/map.js"></script>

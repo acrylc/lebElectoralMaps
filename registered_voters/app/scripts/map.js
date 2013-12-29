@@ -4,9 +4,6 @@ Map = function( content, options ){
 	this.control = options.control || function(){};
 };
 
-
-Map.content = {};
-
 /* @desc 	Renders the text of the page using the templates and the corresponding text
  * 			Call this function to translate the text to another language
  * @param	lang 	An language, ar or en, defines which text object to display and how to 
@@ -56,8 +53,7 @@ Map.prototype._renderText = function( lang ){
 
 	$('.text_overlay').html('');
 	$('.text_overlay.ar').css({'display':'none'});
-    var template = $("#text_overlay_template").html();
-    var template2 = $("#time_section_template").html();
+    var template = $( this.content.textTemplateId ).html();
 
 	if (lang == undefined)
 		lang = 'en';

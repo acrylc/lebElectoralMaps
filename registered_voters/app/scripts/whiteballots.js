@@ -6,8 +6,10 @@ content.textEn = whiteBallotText.textEn;
 content.textAr = whiteBallotText.textAr;
 content.el = 'map';
 getLayers();
+content.textTemplateId = '#wb_text_overlay_template';
 
 var options = {};
+
 options.control = function(){
     var that = this;
     $('#2005.control').on('click', function(){

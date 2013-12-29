@@ -55,7 +55,7 @@ contentAr = {
 	]
 }
 
-whiteBallots = new Map(mapContent, contentEn, contentAr);
+whiteBallots = new Map(mapContent, contentEn, contentAr, 'map');
 
 whiteBallots.renderTextCallback = function(){
     var template2 = $("#time_section_template").html();

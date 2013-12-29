@@ -1,17 +1,23 @@
-Map = function( mapContent, contentEn, contentAr ){
+Map = function( mapContent, contentEn, contentAr, containerElement ){
 	this.mapContent = mapContent;
 	this.contentEn = contentEn;
 	this.contentAr = contentAr;
-}
+	this.el = containerElement;
+};
 
 
 Map.mapContent = {};
 
-Map.prototype.renderMap = function(  layerIndex  ){
+/* @desc 	Renders the text of the page using the templates and the corresponding text
+ * 			Call this function to translate the text to another language
+ * @param	lang 	An language, ar or en, defines which text object to display and how to 
+ *					style the content (ex. left vs right alignment)
+ */
+Map.prototype._renderMap = function(  layerIndex  ){
 
 	if (layerIndex == undefined){
 		// init Map object, bind it to #map div
-		this.map = L.map('map2').setView([33.9, 35], 9);
+		this.map = L.map(this.el).setView([33.9, 35], 9);
 		this.map.scrollWheelZoom.disable();
 
 		// load each layer and add it to the map
@@ -22,9 +28,6 @@ Map.prototype.renderMap = function(  layerIndex  ){
 
 	for (var i=0;i<this.mapContent.layers.length;i++){
 		var layer = L.mapbox.tileLayer(this.mapContent.layers[i]);
-		console.log(layer);
-		console.log(this.map);
-		console.log(this.map.hasLayer(layer));
 		if ( (this.map.hasLayer(layer)) && i!==layerIndex){
 			map.removeLayer(layer);
 			console.log('removing layer');
@@ -47,7 +50,7 @@ Map.prototype.renderMap = function(  layerIndex  ){
  * @param	lang 	An language, ar or en, defines which text object to display and how to 
  *					style the content (ex. left vs right alignment)
  */
-Map.prototype.renderText = function( lang ){
+Map.prototype._renderText = function( lang ){
 
 	$('.text_overlay').html('');
 	$('.text_overlay.ar').css({'display':'none'});
@@ -63,28 +66,31 @@ Map.prototype.renderText = function( lang ){
 
 }
 
+Map.prototype._renderLegend = function(){
 
-/* @desc 	Renders the contents of the HTML page by first
+}
+
+/* 
+ * @desc 	Renders the contents of the HTML page by first
  *			displaying the map
  *			then loading the proper content (by lang) and dispalying it
+ * @param	lang 	The language of the rendered content, 'en' renders English
+ * 					'ar' renders arabic. Default language is English
  */
 Map.prototype.renderContents = function( lang ){
 	
 	if (lang == undefined)
 		lang = 'en';
-	this.renderMap();
-	this.renderText(lang);
+	this._renderMap();
+	this._renderText(lang);
+	this._renderLengend();
 }
 
-Map.prototype.init = function(){
-	this.renderContents();
-	var that = this;
-
-	$('.langbtn').on('click', function(e){
-		that.transText($(e.toElement).attr('id'));
-	});
-}
-
+/* 
+ * @desc 	Translates the text content
+ * @param	lang 	The language of the rendered content, 'en' translates to English
+ * 					'ar' translates to arabic. Default is English
+ */
 Map.prototype.transText = function(lang){
 	if (lang == 'ar'){
 		$('#ar').html('EN');
@@ -99,3 +105,13 @@ Map.prototype.transText = function(lang){
 		$('.text_overlay.en').fadeIn('10');
 	}
 }
+
+Map.prototype.init = function(){
+	this.renderContents();
+	var that = this;
+
+	$('.langbtn').on('click', function(e){
+		that.transText($(e.toElement).attr('id'));
+	});
+}
+

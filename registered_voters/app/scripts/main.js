@@ -36,12 +36,12 @@ contentAr = {
 }
 
 
-registeredVoters = new Map(mapContent, contentEn, contentAr);
+registeredVoters = new Map(mapContent, contentEn, contentAr, 'map');
 
 registeredVoters.renderMapCallback = function(){};
 
 $('document').ready(function(){
-	registeredVoters.init();
-	// whiteBallots.init();
+	// registeredVoters.init();
+	 whiteBallots.init();
 });
 

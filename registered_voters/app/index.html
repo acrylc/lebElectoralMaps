@@ -16,15 +16,8 @@
             <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 
-  <script src='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
-  <link href='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.css' rel='stylesheet' />
-
-         
-
-  <!--[if lte IE 8]>
-    <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.ie.css' rel='stylesheet' />
-  <![endif]-->
-
+        <script src='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
+        <link href='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.css' rel='stylesheet' />
 
     </head>
     <body>
@@ -59,6 +52,19 @@
                 <p id='desc'>
                     <%= desc %>
                 </p>
+                <div id='<%= content[0].id %>' class='time_section clearfix'>
+                    <div id='timepicker'></div>
+                    <div id='time'> <%= content[0].ttime %> </div>
+                    <div id='time_desc'> <%= content[0].time_desc %> </div> 
+                    <div class="control" id="2005"></div>
+                </div>
+                 <div id='<%= content[1].id %>' class='time_section clearfix'>
+                    <div id='timepicker'></div>
+                    <div id='time'> <%= content[1].ttime %> </div>
+                    <div id='time_desc'> <%= content[1].time_desc %> </div> 
+                    <div class="control" id="2009_invalid">INVALID</div>
+                    <div class="control" id="2009_white">WHITE</div>
+                </div>
         </script>
 
         <script type='text/template' id='time_section_template'>
@@ -80,25 +86,14 @@
             </ul>
         </script>
 
-            <!-- // <script src="scripts/leaflet.js"></script> -->
-<!--
-         <script src="scripts/DistanceGrid.js"></script>
 
-         <script src="scripts/MarkerCluster.js"></script>
-                  <script src="scripts/MarkerClusterGroup.js"></script>
-
-         <script src="scripts/MarkerCluster.js"></script>
-         <script src="scripts/MarkerCluster.Spiderfier.js"></script>
-         <script src="scripts/MarkerCluster.QuickHull.js"></script>
--->
-
-<link rel="stylesheet" href="assets/MarkerCluster.css" />
-<link rel="stylesheet" href="assets/MarkerCluster.Default.css" />
-<!--[if lte IE 8]>
-  <link rel="stylesheet" href="/mapbox.js/assets/MarkerCluster.Default.ie.css" />
-<![endif]-->
-<script src="assets/leaflet.markercluster.js"></script>
-<script src="assets/2005.js"></script>
+        <link rel="stylesheet" href="assets/MarkerCluster.css" />
+        <link rel="stylesheet" href="assets/MarkerCluster.Default.css" />
+        <!--[if lte IE 8]>
+          <link rel="stylesheet" href="/mapbox.js/assets/MarkerCluster.Default.ie.css" />
+        <![endif]-->
+        <script src="assets/leaflet.markercluster.js"></script>
+        <script src="assets/2005.js"></script>
 
 
         <!-- build:js scripts/vendor.js -->

@@ -65,7 +65,12 @@ Map.prototype._renderText = function( lang ){
 }
 
 Map.prototype._renderLegend = function(){
+    var template = $( '#legend_template' ).html();
 
+	for (var i = 0;i<this.content.legend.colors.length;i++){
+		console.log(this.content.legend.colors[i]);
+		$('.legend.inner').append(_.template( template,  this.content.legend.colors[i]));
+	}
 }
 
 /* 

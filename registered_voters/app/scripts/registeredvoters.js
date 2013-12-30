@@ -20,6 +20,22 @@ content.layers[0] =  L.mapbox.tileLayer('mayakreidieh.r5');
 
 content.el = 'map';
 
+content.legend = {
+	template : '#legend_template',
+	colors : [
+		{color: 'rgba(158,1,66,0.65)', label : '1.5 >'},
+		{color: 'rgba(213,62,79,0.65)', label : '1.4 < '},
+		{color: 'rgba(244,109,67,0.65)', label : '1.3 < '},
+		{color: 'rgba(253,174,97,0.65)', label : '1.2'},
+		{color: 'rgba(254,224,139,0.65)', label : '1.1'},
+		{color: 'rgba(255,255,200,0.65)', label : '1.05'},
+		{color: 'rgba(230,245,152,0.65)', label : '0.95'},
+		{color: 'rgba(171,221,164,0.65)', label : '0.8'},
+		{color: 'rgba(102,194,165,0.65)', label : '0.7'},
+		{color: 'rgba(50,136,189,0.65)', label : '0.6'},
+	]
+
+}
 
 registeredVoters = new Map(content);
 

@@ -125,11 +125,9 @@ html[xmlns] .clearfix {
 
 .my-div-icon,
 .my-div-icon2 {
-  width: 35px !important;
-  height: 35px !important;
+  width: 50px !important;
+  height: 50px !important;
   border-radius: 50%;
-  background-color: rgba(255, 0, 0, 0.5);
-  font-size: 13px;
 }
 
 @media -sass-debug-info {
@@ -138,15 +136,23 @@ html[xmlns] .clearfix {
   }
 
   line {
-    font-family: \0000354;
+    font-family: \0000353;
   }
 }
 
 .my-div-icon p,
 .my-div-icon2 p {
-  margin-top: 8px;
+  left: -50% !important;
+  top: -50% !important;
+  position: relative;
   width: 100%;
   text-align: center;
+  height: 100%;
+  border-radius: 50%;
+  font-size: 1.3em !important;
+  font-weight: 100;
+  color: black;
+  font-family: Helvetica Neue, sans-serif;
 }
 
 @media -sass-debug-info {
@@ -155,14 +161,46 @@ html[xmlns] .clearfix {
   }
 
   line {
-    font-family: \0000360;
+    font-family: \0000366;
+  }
+}
+
+.my-div-icon p span,
+.my-div-icon2 p span {
+  position: relative;
+  margin-left: 0px;
+  top: 25%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/_base\.scss;
+  }
+
+  line {
+    font-family: \0000374;
   }
 }
 
 .my-div-icon2 {
-  width: 40px !important;
-  height: 40px !important;
-  border: 10px solid rgba(250, 250, 250, 0.5);
+  width: 70px !important;
+  height: 70px !important;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/_base\.scss;
+  }
+
+  line {
+    font-family: \0000377;
+  }
+}
+
+.my-div-icon2 p {
+  width: 100%;
+  height: 100%;
+  border: 5px solid;
 }
 
 @media -sass-debug-info {
@@ -325,8 +363,8 @@ html[xmlns] .clearfix {
 }
 
 .text_overlay #desc {
-  font-weight: 400;
-  font-size: 0.9em;
+  font-weight: 300;
+  font-size: 1em;
   font-family: "Lato", Helvetica Neue, serif;
   padding-left: 50px;
   color: #787878;
@@ -402,6 +440,116 @@ html[xmlns] .clearfix {
 
 .text_overlay.ar #time {
   margin: 0 0 0 40px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/_map\.scss;
+  }
+
+  line {
+    font-family: \00003110;
+  }
+}
+
+.legend {
+  position: fixed;
+  top: 400px;
+  right: 50px;
+  max-width: 50px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/_map\.scss;
+  }
+
+  line {
+    font-family: \00003116;
+  }
+}
+
+.legend div {
+  display: block;
+  font-weight: 100;
+  font-size: 13px;
+  float: right;
+  line-height: 12px;
+  text-align: right;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/_map\.scss;
+  }
+
+  line {
+    font-family: \00003125;
+  }
+}
+
+.legend.inner {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  padding: 0px;
+  width: 40px;
+  float: right;
+  padding: 7px 0 7px 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/_map\.scss;
+  }
+
+  line {
+    font-family: \00003135;
+  }
+}
+
+#leg {
+  display: block;
+  width: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/_map\.scss;
+  }
+
+  line {
+    font-family: \00003139;
+  }
+}
+
+#legcol {
+  padding: 0px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  display: inline-block;
+  float: right;
+  border-right: 1px solid white;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/_map\.scss;
+  }
+
+  line {
+    font-family: \00003149;
+  }
+}
+
+#leglabel {
+  display: inline-block;
+  float: right;
+  font-weight: 100;
+  padding: 0 10px 0 0;
+  font-size: 12px;
+  margin: 10px 0 10px 0;
 }
 
 @media -sass-debug-info {
@@ -16185,6 +16333,7 @@ ul#social li {
   font-size: 1em;
   font-family: Helvetica Neue, Helvetica, sans-serif;
   background-color: #232323;
+  border-bottom: 1px solid #4b4b4b;
 }
 
 @media -sass-debug-info {
@@ -16198,13 +16347,13 @@ ul#social li {
 }
 
 .langbtn {
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   display: inline-block;
   min-width: 30px;
   margin-right: 10px;
   float: right;
-  font-size: 0.9em;
+  font-size: 0.87em;
   font-weight: 400;
   color: white;
   -webkit-transition: background-color 200ms ease-in;
@@ -16225,7 +16374,7 @@ ul#social li {
 .langbtn:hover {
   -webkit-transition: background-color 200ms ease-in;
   transition: background-color 200ms ease-in;
-  background-color: #3c3c3c;
+  background-color: #5a5a5a;
 }
 
 @media -sass-debug-info {
@@ -16279,10 +16428,45 @@ ul#social li {
   }
 
   line {
-    font-family: \00003180;
+    font-family: \00003178;
   }
 }
 
 #ar {
   font-size: 1.3em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/main\.scss;
+  }
+
+  line {
+    font-family: \00003182;
+  }
+}
+
+.control {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: red;
+  display: inline-block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/Users\/milan\/Documents\/coding\/web\/lebElectoralMaps\/registered_voters\/app\/styles\/main\.scss;
+  }
+
+  line {
+    font-family: \00003189;
+  }
+}
+
+#name {
+  z-index: 9999;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: white;
 }

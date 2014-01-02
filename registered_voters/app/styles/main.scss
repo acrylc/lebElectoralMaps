@@ -24,9 +24,17 @@ html, body{
 	position:relative;
 	font-family : Helvetica, sans-serif;
 	font-weight:700;
+-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+box-sizing: border-box;         /* Opera/IE 8+ */
+
 
 }
 
+body{
+	border: 12px solid black;
+
+}
 ::selection {
 	background: rgb(150,170,200); /* Safari */
 	color: black;
@@ -133,7 +141,8 @@ ul#social{
 	font-size:1em;
 	font-family: Helvetica Neue, Helvetica, sans-serif;
 	background-color: rgb(35,35,35);
-	border-bottom: 1px solid rgb(75,75,75);
+	background-color: rgba(220,220,230,0.5);
+	color:black !important;
 	li{
 
 	}
@@ -153,6 +162,7 @@ $col : rgb(40,40,60);
 	font-weight: 400;
 
 	color: white;
+	color:black;
 	@include transition(background-color 200ms ease-in);
 	cursor: pointer;
 

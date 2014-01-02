@@ -170,13 +170,11 @@ $col : rgb(40,40,60);
 	//background-color: desaturate(lighten(rgb(40,40,60), 60%),20%);
 	color: rgb(40,40,60);
 	&:hover{
-
-	background-color: white;
-	color: rgb(40,40,60);
+		background-color: white;
+		color: rgb(40,40,60);
+	}
 }
 
-
-}
 #ar{
 	font-size: 1.3em;
 }
@@ -188,11 +186,11 @@ $col : rgb(40,40,60);
 	display:inline-block;
 }
 
-#name{
-	position: fixed;
-	right:50px;
-	bottom: 50px;
-	width:300px;
-	height:100px;
+#name {
+	z-index:9999;
+	position:absolute;
+	bottom:10px;
+	right:10px;
 	background: white;
+
 }

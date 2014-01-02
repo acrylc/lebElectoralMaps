@@ -2,6 +2,6 @@
 
 $('document').ready(function(){
 	registeredVoters.init();
-	 // whiteBallots.init();
+	// whiteBallots.init();
 });
 

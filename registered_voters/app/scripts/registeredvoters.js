@@ -16,9 +16,15 @@ content.textAr = {
 }
 
 content.layers = [];
-content.layers[0] =  L.mapbox.tileLayer('mayakreidieh.r5');
+content.layers[0] =  L.mapbox.tileLayer('mayakreidieh.voter_power');
 
 content.el = 'map';
+
+content.templates = [
+		" <div id='tloc'>fnasdklfja ksldfjaslkdfjalsd</div>",
+		" <div id='tloc'>{{District}}</div> <div id='tnum'>{{blank_vote}}</div>",
+		""
+	]
 
 content.legend = {
 	template : '#legend_template',
@@ -42,9 +48,9 @@ registeredVoters = new Map(content);
 // 	layers : [
 // 		'mayakreidieh.r5',
 // 		'mayakreidieh.testt',
-// 		'mayakreidieh.t2'
-// 	], 
-// 	templates : [
+// // 		'mayakreidieh.t2'
+// // 	], 
+// content.templates : [
 // 		" <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blanc_20_1}}</div>",
 // 		" <div id='tloc'>{{District}}</div> <div id='tnum'>{{blank_vote}}</div>",
 // 		""

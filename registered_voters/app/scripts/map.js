@@ -11,35 +11,27 @@ Map = function( content, options ){
  */
 Map.prototype._renderMap = function(  layerIndex  ){
 
-	if (layerIndex == undefined){
 		// init Map object, bind it to #map div
 		this.map = L.map(this.content.el).setView([33.9, 35], 9);
-		this.map.scrollWheelZoom.disable();
+		// this.map.scrollWheelZoom.disable();
 
-		// load each layer and add it to the map
-		// note that the layer order matters, they overlay each other
-		this.map.addLayer( L.mapbox.tileLayer(this.content.baseMap));
-		layerIndex = 0;
-	}
+	// 	// load each layer and add it to the map
+	// 	// note that the layer order matters, they overlay each other
+			this.map.addLayer( L.mapbox.tileLayer(this.content.baseMap));
 
-	// Add first infographic layer
-	this.map.addLayer(this.content.layers[0]);
+		// this.map.addLayer( L.mapbox.tileLayer('mayakreidieh.r7'));
+	
+this.map.addLayer( this.content.layers[0] );
 
+	var gridLayer = L.mapbox.gridLayer('mayakreidieh.voter_power');
+this.map.addLayer(gridLayer);
 
-	// for (var i=0;i<this.content.layers.length;i++){
-	// 	var layer = L.mapbox.tileLayer(this.content.layers[i]);
-	// 	if ( (this.map.hasLayer(layer)) && i!==layerIndex){
-	// 		map.removeLayer(layer);
-	// 		console.log('removing layer');
-	// 	}
-	// 	if (!this.map.hasLayer(layer) && i==layerIndex){
-	// 		console.log('adding layer '+i);
-	// 		this.map.addLayer( layer );
-	// 		var tooltipTemplate = this.content.templates[ layerIndex ];
-	// 		var gridLayer = L.mapbox.gridLayer( this.content.layers[ layerIndex ] ).addTo(this.map);
-	// 		var gridControl = L.mapbox.gridControl(gridLayer, {template: tooltipTemplate, follow: false,}).addTo(this.map);
-	// 	}
-	// }
+gridLayer
+    .on('mousemove',function(o) {
+        document.getElementById('name').innerHTML = (o.data && o.data.DISTRICT || '');
+    }).on('mouseout', function(o) {
+        document.getElementById('name').innerHTML = '';
+    });
 	
 }
 
@@ -68,7 +60,6 @@ Map.prototype._renderLegend = function(){
     var template = $( '#legend_template' ).html();
 
 	for (var i = 0;i<this.content.legend.colors.length;i++){
-		console.log(this.content.legend.colors[i]);
 		$('.legend.inner').append(_.template( template,  this.content.legend.colors[i]));
 	}
 }

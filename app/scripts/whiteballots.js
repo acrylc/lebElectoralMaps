@@ -1,7 +1,9 @@
 
 var content = {};
 
-content.baseMap = 'mayakreidieh.map-76055w9u';
+content.baseMap = 'mayakreidieh.map-dfh9esrb';
+content.mapCenter = [33.894286, 35.00];
+
 content.textEn = whiteBallotText.textEn;
 content.textAr = whiteBallotText.textAr;
 content.el = 'map';
@@ -12,17 +14,17 @@ var options = {};
 
 options.control = function(){
     var that = this;
-    $('#2005.control').on('click', function(){
+    $('#invalid_2005.control').on('click', function(){
     	that.map.removeLayer(that.content.layers[1]);
     	that.map.removeLayer(that.content.layers[2]);
     	that.map.addLayer(that.content.layers[0]);
     })    
-    $('#2009_invalid.control').on('click', function(){
+    $('#invalid_2009.control').on('click', function(){
     	that.map.removeLayer(that.content.layers[0]);
     	that.map.removeLayer(that.content.layers[2]);
     	that.map.addLayer(that.content.layers[1]);
     })
-    $('#2009_white.control').on('click', function(){
+    $('#white_2009.control').on('click', function(){
     	that.map.removeLayer(that.content.layers[0]);
     	that.map.removeLayer(that.content.layers[1]);
     	that.map.addLayer(that.content.layers[2]);
@@ -101,16 +103,3 @@ $('document').ready(function(){
 	whiteBallots.init();
 });
 
-
-
-// 	layers : [
-// 		// 'mayakreidieh.t7',
-// 		// 'mayakreidieh.testt',
-// 		// 'mayakreidieh.t2'
-// 	], 
-// 	templates : [
-// 		" <div id='tloc'>{{blanc_2005}}</div> <div id='tnum'>{{blank_vote}}</div>",
-// 		" <div id='tloc'>{{District}}</div> <div id='tnum'>{{blank_vote}}</div>",
-// 		""
-// 	]
-// }

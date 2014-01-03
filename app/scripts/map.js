@@ -12,7 +12,10 @@ Map = function( content, options ){
 Map.prototype._renderMap = function(  layerIndex  ){
 
 	// init Map object, bind it to #map div
-	this.map = L.map(this.content.el).setView([33.894286, 35.59071], 9);
+	if (this.content.mapCenter != undefined ){
+		this.map = L.map(this.content.el).setView( this.content.mapCenter , 9);
+	} else 
+		this.map = L.map(this.content.el).setView([33.894286, 35.59071], 9);
 	// this.map.scrollWheelZoom.disable();
 
 	// load each layer and add it to the map

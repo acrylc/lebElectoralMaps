@@ -1,9 +1,11 @@
 @import "compass/css3";
 @import "compass/css3/transform-legacy";
 
+$red: rgb(200,100,100);
+
+
 h1{
 	margin: 0 0 0px 0 ;
-	padding-left: 35px;
 	font-weight: 700;
 }
 #tloc{
@@ -30,7 +32,7 @@ h1{
 	color : rgb(40,40,40);
 	background-color: rgba(255,255,255,0.7);
 
-	max-width: 450px;
+	max-width: 750px;
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -39,16 +41,14 @@ h1{
 
 	p{
 		max-width:550px;
-		text-align: justify;
 		line-height: 1.4em;
-		margin: 30px 0 20px 0;
+		margin: 10px 0 20px 0;
 	}
 
 	#desc{
 		font-weight: 300;
 		font-size:1em;
 		font-family: "Lato", Helvetica Neue, serif;
-		padding-left: 50px;
 		color: rgb(120,120,120);
 	}
 }
@@ -61,8 +61,6 @@ h1{
 			float: left;
 		}
 	}
-
-
 }
 
 // TOOL TIP
@@ -76,4 +74,55 @@ h1{
 	background: white;
 	color:black;
 	text-align:center;
+}
+
+.control{
+	width:100px;
+	padding: 10px 0 10px 0;
+	text-align:center;
+	font: 15px Helvetica Neue;
+	font-weight: 700 ;
+	background-color:white;
+	display:inline-block;
+	cursor: pointer;
+	&:hover{
+		color: $red;
+	}
+}
+#2009_invalid{
+	border-right: 1px solid rgb(100,100,100);
+}
+
+.time_section{
+	display:block;
+	position:relative;
+}
+#time, #time_desc{
+	display:inline-block;
+	padding: 10px 0 10px 0;
+	font-family: "Lato", serif;
+	font-weight: 800;
+}
+
+#invalid_2009{
+	border-right: 1px solid black;
+}
+
+#timepicker{
+	display:inline-block;
+	margin-top: 15px;
+	width:15px;
+	height:15px;
+	background-color:rgb(200,200,190);
+	background-color:$red;
+	background-color: black;
+	border-radius: 50%;
+	float:left;
+}
+#time{
+
+	font-size: 2em;
+	margin: 0 20px 0 35px;
+	font-weight: 700;
+//	color: saturate($red,20%);
 }

@@ -1,6 +1,5 @@
 @import 'base';
 @import 'map';
-@import 'graph';
 
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
@@ -58,59 +57,10 @@ body{
 }
 
 
-
-
-fc{
-	color: $red;
-}
-
-fh{
-	background-color: $red;
-	color:white;
-	padding: 0 5px 0 5px;
-}
-
 p{
 	display:block;
 }
 
-.time_section{
-	display:block;
-	position:relative;
-}
-#time, #time_desc{
-	display:inline-block;
-	padding: 10px 0 10px 0;
-	font-family: "Lato", serif;
-	font-weight: 800;
-
-}
-
-
-#time_desc{
-	font-family: "Lato";
-	font-weight: 400;
-	font-size:0.8em;
-	margin: 0 0 20px 50px;
-}
-#timepicker{
-	display:inline-block;
-	margin-top: 15px;
-	width:15px;
-	height:15px;
-	background-color:rgb(200,200,190);
-	background-color:$red;
-	background-color: black;
-	border-radius: 50%;
-	float:left;
-}
-#time{
-
-	font-size: 2em;
-	margin: 0 40px 0 35px;
-	font-weight: 700;
-//	color: saturate($red,20%);
-}
 
 ul#social{
 	margin:40px 0 0 0;
@@ -197,11 +147,4 @@ $col : rgb(40,40,60);
 
 #ar{
 	font-size: 1.3em;
-}
-
-.control{
-	width:50px !important;
-	height:50px !important;
-	background-color:red;
-	display:inline-block;
 }

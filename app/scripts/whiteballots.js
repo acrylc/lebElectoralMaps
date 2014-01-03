@@ -1,7 +1,7 @@
 
 var content = {};
 
-content.baseMap = 'mayakreidieh.map-dfh9esrb';
+content.baseMap = 'mayakreidieh.map-76055w9u';
 content.textEn = whiteBallotText.textEn;
 content.textAr = whiteBallotText.textAr;
 content.el = 'map';
@@ -26,12 +26,11 @@ options.control = function(){
     	that.map.removeLayer(that.content.layers[0]);
     	that.map.removeLayer(that.content.layers[1]);
     	that.map.addLayer(that.content.layers[2]);
-    	console.log('clicked');
+    	//console.log('clicked');
     })
 };
 
 whiteBallots = new Map(content, options);
-
 
 function getLayers() {
 
@@ -51,7 +50,7 @@ var featuresToMarkerLayer = function(features, category){
 	markers = new L.markerClusterGroup(({
 	
 	iconCreateFunction: function(cluster) {
-		console.log(cluster.getAllChildMarkers()[0].data );
+		//console.log(cluster.getAllChildMarkers()[0].data );
 		var total = 0;
 		for(var i=0;i<cluster.getAllChildMarkers().length;i++){
 			total += Number(cluster.getAllChildMarkers()[i].data);
@@ -96,8 +95,6 @@ $.getJSON('data/white_ballots/2009_white_ballots.geojson', function(response){
 });
 
 }
-
-
 
 
 $('document').ready(function(){

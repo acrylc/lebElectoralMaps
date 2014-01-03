@@ -1,6 +1,6 @@
 Map = function( content, options ){
 	this.content = content;
-	options = options || {};
+	this.options = options || {};
 	this.control = options.control || function(){};
 };
 
@@ -11,28 +11,53 @@ Map = function( content, options ){
  */
 Map.prototype._renderMap = function(  layerIndex  ){
 
-		// init Map object, bind it to #map div
+	// init Map object, bind it to #map div
+	this.map = L.map(this.content.el).setView([33.894286, 35.59071], 9);
+	// this.map.scrollWheelZoom.disable();
 
-		this.map = L.map(this.content.el).setView([33.894286, 35.59071], 9);
-		// this.map.scrollWheelZoom.disable();
+	// load each layer and add it to the map
+	// note that the layer order matters, they overlay each other
+	this.map.addLayer( L.mapbox.tileLayer(this.content.baseMap));	
 
-	// 	// load each layer and add it to the map
-	// 	// note that the layer order matters, they overlay each other
-			this.map.addLayer( L.mapbox.tileLayer(this.content.baseMap));
-
-		// this.map.addLayer( L.mapbox.tileLayer('mayakreidieh.r7'));
-	
-this.map.addLayer( this.content.layers[0] );
+	this.map.addLayer( this.content.layers[0] );
 
 	var gridLayer = L.mapbox.gridLayer('mayakreidieh.voter_power');
-this.map.addLayer(gridLayer);
+	this.map.addLayer(gridLayer);
 
-gridLayer
-    .on('mousemove',function(o) {
-        document.getElementById('name').innerHTML = (o.data && o.data.DISTRICT || '');
-    }).on('mouseout', function(o) {
-        document.getElementById('name').innerHTML = '';
-    });
+	// var template = $( '#tooltip-template' ).html();
+	var that = this;
+	gridLayer.on('mousemove',function(o) {
+    	
+	        document.getElementById('tooltip-overlay').innerHTML = (o.data && o.data['DISTRICT'] || '');
+	    });
+	
+	// var template = $( '#tooltip-template' ).html();
+	// var that = this;
+	// gridLayer.on('mousemove',function(o) {
+ //    	if (o.data!= undefined){
+	//     	var color;
+	//     	var index = (o.data['Seat Perce']/o.data['Voter Perc']);
+	//     	for (var i = 0;i<that.options.legend.colors.length-1;i++){
+	//     		if (index < Number(that.options.legend.colors[i].label) && index >= Number(that.options.legend.colors[i+1].label) ){
+	//     			color = that.options.legend.colors[i].color;
+	//     		}
+	//     		if (index >= Number(that.options.legend.colors[0].label))
+	//     			color = that.options.legend.colors[0].color;
+	//     		if (index <= Number(that.options.legend.colors[i].label))
+	//     			color = that.options.legend.colors[i].color;
+	//     	}
+	//         document.getElementById('tooltip-overlay').innerHTML = (o.data && _.template( template,  {
+	//         	'color':color,
+	//         	'district':o.data['DISTRICT'], 
+	//         	'voters_perc': o.data['Voter Perc'],
+	//         	'voters_total': o.data['Registered'],
+	//         	'seats_perc': o.data['Seat Perce'],
+	//         	'seats_total': o.data['Total']
+	//         }) || '');
+ //    	}
+ //    }).on('mouseout', function(o) {
+ //        document.getElementById('tooltip-overlay').innerHTML = '';
+ //    });
 	
 }
 
@@ -58,10 +83,12 @@ Map.prototype._renderText = function( lang ){
 }
 
 Map.prototype._renderLegend = function(){
-    var template = $( '#legend_template' ).html();
+	if (this.options.legend != undefined){
+	    var template = $( '#legend_template' ).html();
 
-	for (var i = 0;i<this.content.legend.colors.length;i++){
-		$('.legend.inner').append(_.template( template,  this.content.legend.colors[i]));
+		for (var i = 0;i<this.options.legend.colors.length;i++){
+			$('.legend.inner').append(_.template( template,  this.options.legend.colors[i]));
+		}
 	}
 }
 
@@ -102,7 +129,7 @@ Map.prototype.transText = function(lang){
 }
 
 Map.prototype.init = function(){
-	this.renderContents();
+	this.renderContents('en');
 	var that = this;
 
 	$('.langbtn').on('click', function(e){

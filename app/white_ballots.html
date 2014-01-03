@@ -14,6 +14,7 @@
         <!-- build:css(.tmp) styles/main.css -->
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
             <link rel="stylesheet" href="styles/main.css">
+            <link rel="stylesheet" href="styles/white_ballots.css">
         <!-- endbuild -->
 
         <script src='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
@@ -41,8 +42,7 @@
             <div class='text_overlay en'></div>
 
             <div id='map'></div>
-            <div id='name'></div>
-
+            <div id='tooltip-overlay'></div>
 
         </div>
 
@@ -129,7 +129,6 @@
         <!-- build:js scripts/main.js -->
         <script src='bower_components/underscore/underscore-min.js'></script> 
         <script src="scripts/text_content.js"></script>
-        <script src="scripts/base_map.js"></script>
         <script src="scripts/map.js"></script>
         <script src="scripts/whiteballots.js"></script>
         <!-- endbuild -->

@@ -45,6 +45,15 @@ content.legend = {
 
 registeredVoters = new Map(content);
 
+
+
+$('document').ready(function(){
+	registeredVoters.init();
+	// whiteBallots.init();
+});
+
+
+
 // 	layers : [
 // 		'mayakreidieh.r5',
 // 		'mayakreidieh.testt',

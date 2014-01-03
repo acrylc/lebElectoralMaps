@@ -97,6 +97,15 @@ $.getJSON('data/white_ballots/2009_white_ballots.geojson', function(response){
 
 }
 
+
+
+
+$('document').ready(function(){
+	whiteBallots.init();
+});
+
+
+
 // 	layers : [
 // 		// 'mayakreidieh.t7',
 // 		// 'mayakreidieh.testt',

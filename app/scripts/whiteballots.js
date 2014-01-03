@@ -32,6 +32,18 @@ options.control = function(){
     })
 };
 
+options.setTooltip = function(that){
+		var gridLayer = L.mapbox.gridLayer('mayakreidieh.voter_power');
+	that.map.addLayer(gridLayer);
+
+	// var template = $( '#tooltip-template' ).html();
+	gridLayer.on('mousemove',function(o) {
+    	
+	        document.getElementById('tooltip-overlay').innerHTML = (o.data && o.data['DISTRICT'] || '');
+	    });
+	
+}
+
 whiteBallots = new Map(content, options);
 
 function getLayers() {

@@ -24,16 +24,9 @@ Map.prototype._renderMap = function(  layerIndex  ){
 
 	this.map.addLayer( this.content.layers[0] );
 
-	var gridLayer = L.mapbox.gridLayer('mayakreidieh.voter_power');
-	this.map.addLayer(gridLayer);
-
-	// var template = $( '#tooltip-template' ).html();
-	var that = this;
-	gridLayer.on('mousemove',function(o) {
-    	
-	        document.getElementById('tooltip-overlay').innerHTML = (o.data && o.data['DISTRICT'] || '');
-	    });
 	
+	if (this.options.setTooltip != undefined)
+		this.options.setTooltip(this);
 	// var template = $( '#tooltip-template' ).html();
 	// var that = this;
 	// gridLayer.on('mousemove',function(o) {
@@ -137,6 +130,16 @@ Map.prototype.init = function(){
 
 	$('.langbtn').on('click', function(e){
 		that.transText($(e.toElement).attr('id'));
+	});
+	$('#download-data').on('click', function(){
+		if ($('#toolbar-download').is(':visible'))
+			$('#toolbar-download').fadeOut(75);
+		else
+			$('#toolbar-download').fadeIn(75);
+
+	});
+	$('.download-li').on('click', function(){
+		$('#toolbar-download').fadeOut(75);
 	});
 }
 

@@ -43,6 +43,37 @@ options.legend = {
 	]
 
 }
+options.setTooltip = function( that ){
+			var gridLayer = L.mapbox.gridLayer('mayakreidieh.voter_power');
+	that.map.addLayer(gridLayer);
+
+		var template = $( '#tooltip-template' ).html();
+	gridLayer.on('mousemove',function(o) {
+    	if (o.data!= undefined){
+	    	var color;
+	    	var index = (o.data['Seat Perce']/o.data['Voter Perc']);
+	    	for (var i = 0;i<that.options.legend.colors.length-1;i++){
+	    		if (index < Number(that.options.legend.colors[i].label) && index >= Number(that.options.legend.colors[i+1].label) ){
+	    			color = that.options.legend.colors[i].color;
+	    		}
+	    		if (index >= Number(that.options.legend.colors[0].label))
+	    			color = that.options.legend.colors[0].color;
+	    		if (index <= Number(that.options.legend.colors[i].label))
+	    			color = that.options.legend.colors[i].color;
+	    	}
+	        document.getElementById('tooltip-overlay').innerHTML = (o.data && _.template( template,  {
+	        	'color':color,
+	        	'district':o.data['DISTRICT'], 
+	        	'voters_perc': o.data['Voter Perc'],
+	        	'voters_total': o.data['Registered'],
+	        	'seats_perc': o.data['Seat Perce'],
+	        	'seats_total': o.data['Total']
+	        }) || '');
+    	}
+    }).on('mouseout', function(o) {
+        document.getElementById('tooltip-overlay').innerHTML = '';
+    });
+}
 
 voterPower = new Map(content, options);
 
